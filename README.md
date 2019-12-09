@@ -20,7 +20,9 @@ list of links and references on architectures, best practise, methodologies and 
 - *katalyst by Codurance* [https://katalyst.codurance.com/]
 - *Birthday Greetings Kata by xpmatteo* [http://matteo.vaccari.name/blog/archives/154][https://github.com/xpmatteo/birthday-greetings-kata]
 - *Prime factors Kata by Uncle Bob* [http://butunclebob.com/ArticleS.UncleBob.ThePrimeFactorsKata]
+- *kata-log* [https://kata-log.rocks/]
 - *coding dojo* [http://codingdojo.org/kata/]
+
 
 ## SOLID principles
 - **Principles of Object Oriented Design** [http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod]
