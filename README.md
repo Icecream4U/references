@@ -36,3 +36,6 @@ list of links and references on architectures, best practise, methodologies and 
 
 ## Test
 - **Test pyramid** [https://martinfowler.com/articles/practical-test-pyramid.html]
+
+## Microservices
+- **Microservices top 3 errors** by Gabriele Lana [https://www.youtube.com/watch?v=_fszoPz7muU]
