@@ -1,0 +1,29 @@
+le architetture a microservizi sono modelli di deployment non di design
+che due classi finiscano in due package diversi o in due microservizi diversi non fa differenza
+è il design la chiave non l'architettura
+- Gabriele Lana
+
+
+events + projections (create read models)
+
+
+"invidia" smell -> codice che prima di fare una cosa deve sempre andare in giro a prendere informazioni
+=> probabilmente lui dovrebbe essere l'owner di quelle informazioni
+
+
+"be conservative in what you send, be liberal in what you accept" - Postel's Law
+
+
+se devo usare chiamate sincrone => exponential backoff, gli tiro 503 e ci mettiamo d'accordo di riprovare tra tot minuti
+
+
+tra le tabelle non c'è integrità refenrenziale, l'integrità la fai a livello applicativo
+
+
+customizzazione degli n flag per gli n clienti -> composizione di oggetti. N composizioni di oggetti (N main) per N customizzazioni che vuoi fare
+=> hai del codice con type checking che non compila se hai sbagliato a comporre le regole
+alla peggio fai un adapter per ciascun cliente, così non sporchi la code base.
+
+se devi smantellare un monolite allora spacchi il monolite e lo separi prima di tirare fuori il microservizio.
+crei una interfaccia api da chiamare in loopback e cosi la separazione è solo configurazione
+e se ti rendi conto che non va separato non ti costa nulla, puoi sempre tornare indietro
