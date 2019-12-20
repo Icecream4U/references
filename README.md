@@ -31,9 +31,8 @@ list of links and references on architectures, best practise, methodologies and 
 - *coding dojo* [http://codingdojo.org/kata/]
 
 **Forcing you to abandon your confort zone**
-- *Object Calisthenics* [https://www.cs.helsinki.fi/u/luontola/tdd-2009/ext/ObjectCalisthenics.pdf]
 - *Corey Haines coderetreat constraints* []
-
+- *Object Calisthenics* [https://www.cs.helsinki.fi/u/luontola/tdd-2009/ext/ObjectCalisthenics.pdf]
 
 ## SOLID principles
 - **Principles of Object Oriented Design** [http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod]
