@@ -15,6 +15,7 @@ list of links and references on architectures, best practise, methodologies and 
 
 ## Design
 - **4 rules of simple design** by Kent Beck [https://martinfowler.com/bliki/BeckDesignRules.html]
+- **iterative nature of the 4 rules** by Joe Rainsberger [https://blog.thecodewhisperer.com/permalink/putting-an-age-old-battle-to-rest]
 
 ## TDD
 - **TDD resources to start** by Matteo Vaccari [http://matteo.vaccari.name/blog/selected-tdd-resources-to-start]
