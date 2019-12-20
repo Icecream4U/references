@@ -32,6 +32,7 @@ list of links and references on architectures, best practise, methodologies and 
 
 **Forcing you to abandon your confort zone**
 - *Object Calisthenics* [https://www.cs.helsinki.fi/u/luontola/tdd-2009/ext/ObjectCalisthenics.pdf]
+- *Corey Haines coderetreat constraints* []
 
 
 ## SOLID principles
