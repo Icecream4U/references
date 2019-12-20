@@ -17,6 +17,10 @@ list of links and references on architectures, best practise, methodologies and 
 - **4 rules of simple design** by Kent Beck [https://martinfowler.com/bliki/BeckDesignRules.html]
 - **iterative nature of the 4 rules** by Joe Rainsberger [https://blog.thecodewhisperer.com/permalink/putting-an-age-old-battle-to-rest]
 
+## SOLID principles
+- **Principles of Object Oriented Design** [http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod]
+- **Dependency inversion principle** [https://www.martinfowler.com/articles/dipInTheWild.html]
+
 ## TDD
 - **TDD resources to start** by Matteo Vaccari [http://matteo.vaccari.name/blog/selected-tdd-resources-to-start]
 - **The Transformation Priority Premise** [http://blog.cleancoder.com/uncle-bob/2013/05/27/TheTransformationPriorityPremise.html]
@@ -34,10 +38,6 @@ list of links and references on architectures, best practise, methodologies and 
 **Forcing you to abandon your confort zone**
 - *Corey Haines coderetreat constraints* [https://github.com/Icecream4U/references/blob/master/CoreyHaines-code-retreat-constraints.md]
 - *Object Calisthenics* [https://www.cs.helsinki.fi/u/luontola/tdd-2009/ext/ObjectCalisthenics.pdf]
-
-## SOLID principles
-- **Principles of Object Oriented Design** [http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod]
-- **Dependency inversion principle** [https://www.martinfowler.com/articles/dipInTheWild.html]
 
 ## Test
 - **Test pyramid** [https://martinfowler.com/articles/practical-test-pyramid.html]
