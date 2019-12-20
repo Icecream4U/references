@@ -7,10 +7,10 @@ We all have seen methods we consider too large. But what size is reasonable for 
 Branching statements, such as the notorious if, are a form of procedural polymorphism. Let’s work on improving our object skills by finding other mechanisms to get the same effect. Prefer type-based polymorphism or lookup tables.
 
 #### No primitives across method boundaries (input or output)
-The only types that can be passed across method boundaries (inputs and outputs) are ones that we have defined. No data primitives, such as booleans, integers or strings. You also are not allowed to use primitive data structures such as Lists, Ar- rays or Enumerables. Focus instead on understanding what the types represent and building types for those concepts.
+The only types that can be passed across method boundaries (inputs and outputs) are ones that we have defined. No data primitives, such as booleans, integers or strings. You also are not allowed to use primitive data structures such as Lists, Arrays or Enumerables. Focus instead on understanding what the types represent and building types for those concepts.
 
 #### Mute ping-pong pairing
-One member of the pair writes the unit tests, the other mem- ber writes the code to turn those tests green. You can think of the roles as “test redder” and “test greener.” This is standard. However, the only communication allowed between partners is through the tests and the code. And no cheating by putting a bunch of comments!
+One member of the pair writes the unit tests, the other member writes the code to turn those tests green. You can think of the roles as “test redder” and “test greener.” This is standard. However, the only communication allowed between partners is through the tests and the code. And no cheating by putting a bunch of comments!
 
 #### Find the loophole
 Generally coupled with ping-pong pairing, one pair writes the tests, the other pair tries to get those tests passing. The catch is that the pair working to get the tests passing writes the wrong code. How long can you go before the tests force you into a “correct” algorithm. Here’s the catch, though: you must write production-level code, think of it as code you would show a prospective employer.
