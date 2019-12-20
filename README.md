@@ -31,7 +31,7 @@ list of links and references on architectures, best practise, methodologies and 
 - *coding dojo* [http://codingdojo.org/kata/]
 
 **Forcing you to abandon your confort zone**
-- *Corey Haines coderetreat constraints* []
+- *Corey Haines coderetreat constraints* [https://github.com/Icecream4U/references/blob/master/CoreyHaines-code-retreat-constraints.md]
 - *Object Calisthenics* [https://www.cs.helsinki.fi/u/luontola/tdd-2009/ext/ObjectCalisthenics.pdf]
 
 ## SOLID principles
