@@ -45,3 +45,6 @@ list of links and references on architectures, best practise, methodologies and 
 ## Microservices
 - **Microservices Guide** by Martin Fowler [https://www.martinfowler.com/microservices/]
 - **Microservices top 3 errors** by Gabriele Lana [https://www.youtube.com/watch?v=_fszoPz7muU][**Notes:** https://github.com/Icecream4U/references/blob/master/NOTES-microservices_top_3_errors_by_GabrieleLana]
+
+## Organization
+- **Socio-technical practice as craft** by Michael Featers [https://www.youtube.com/watch?v=4HdgYZ4p7qc] (on Conway's law and Mythical Man Months and so on)
