@@ -51,4 +51,5 @@ list of links and references on architectures, best practise, methodologies and 
 - [Manifesto for Software Craftmanship](http://manifesto.softwarecraftsmanship.org/)
 
 ## Organization
+- **Event Storming cheat sheet** [https://github.com/wwerner/event-storming-cheatsheet#execution]
 - **Socio-technical practice as craft** by Michael Featers [https://www.youtube.com/watch?v=4HdgYZ4p7qc] (on Conway's law and Mythical Man Months and so on)
