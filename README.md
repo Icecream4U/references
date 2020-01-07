@@ -57,3 +57,4 @@ list of links and references on architectures, best practise, methodologies and 
 ## Organization
 - **Event Storming cheat sheet** [https://github.com/wwerner/event-storming-cheatsheet#execution]
 - **Socio-technical practice as craft** by Michael Featers [https://www.youtube.com/watch?v=4HdgYZ4p7qc] (on Conway's law and Mythical Man Months and so on)
+- **Hacking Your Work Life Balance** by Jennifer Wadella [https://marc-bouvier.github.io/2018/08/13/hacking-your-work-life-balance-Jennifer-Wadella/]
