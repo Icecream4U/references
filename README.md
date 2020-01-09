@@ -16,7 +16,7 @@ list of links and references on architectures, best practise, methodologies and 
 ## Design
 - **4 rules of simple design** by Kent Beck [https://martinfowler.com/bliki/BeckDesignRules.html]
 - **iterative nature of the 4 rules** by Joe Rainsberger [https://blog.thecodewhisperer.com/permalink/putting-an-age-old-battle-to-rest]
-- **Outside-In design** by Sandro Mancuso [https://www.youtube.com/watch?v=fKHYBnuPApY][https://www.youtube.com/watch?v=rbSDGr-_UwY]
+- **Outside-In design** by Sandro Mancuso [https://www.youtube.com/watch?v=fKHYBnuPApY]
 
 ## DDD - Domain Driven Design
 - **Awesome DDD** list of everything about DDD [https://github.com/heynickc/awesome-ddd]
