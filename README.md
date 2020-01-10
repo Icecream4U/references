@@ -29,7 +29,7 @@ list of links and references on architectures, best practise, methodologies and 
 - **TDD resources to start** by Matteo Vaccari [http://matteo.vaccari.name/blog/selected-tdd-resources-to-start]
 - **The Transformation Priority Premise** [http://blog.cleancoder.com/uncle-bob/2013/05/27/TheTransformationPriorityPremise.html]
 - **Outside in TDD** by Sandro Mancuso NOTES [https://gist.github.com/xpepper/66ced102032ad479b8170d9205754519]
-
+- **On TDD and design** by Sandro Mancuso (contains also the difference between classicist TDD and Outside In) [https://www.youtube.com/watch?v=KyFVA4Spcgg]
 
 #### Kata 
 - *katalyst by Codurance* [https://katalyst.codurance.com/]
