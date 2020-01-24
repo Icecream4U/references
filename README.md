@@ -31,6 +31,7 @@ list of links and references on architectures, best practise, methodologies and 
 - **Outside in TDD** by Sandro Mancuso NOTES [https://gist.github.com/xpepper/66ced102032ad479b8170d9205754519]
 - **On TDD and design** by Sandro Mancuso (contains also the difference between classicist TDD and Outside In) [https://www.youtube.com/watch?v=KyFVA4Spcgg]
 - **mockist TDD** by Gabriele Tondi (XPug Milano) [https://www.youtube.com/watch?v=DiYhBwc9diQ]
+- **Integrated Tests Are A Scam** by JB Rainsberger [https://www.youtube.com/watch?v=VDfX44fZoMc]
 
 #### Kata 
 - *katalyst by Codurance* [https://katalyst.codurance.com/]
