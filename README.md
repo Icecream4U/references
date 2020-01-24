@@ -65,3 +65,4 @@ list of links and references on architectures, best practise, methodologies and 
 ## DSLs
 - Complete Guide by Federico Tomassetti [https://tomassetti.me/domain-specific-languages/]
 - Domain Specific Language Guide by Martin Fowler [https://martinfowler.com/dsl.html]
+- Metaprogrammazione usando Java Parser by Luca Molteni@JUGMilano [https://www.youtube.com/watch?v=_WMZKIHTI9c]
