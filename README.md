@@ -63,6 +63,6 @@ list of links and references on architectures, best practise, methodologies and 
 - **Hacking Your Work Life Balance** by Jennifer Wadella [https://marc-bouvier.github.io/2018/08/13/hacking-your-work-life-balance-Jennifer-Wadella/]
 
 ## DSLs
-- Complete Guide by Federico Tomassetti [https://tomassetti.me/domain-specific-languages/]
-- Domain Specific Language Guide by Martin Fowler [https://martinfowler.com/dsl.html]
-- Metaprogrammazione usando Java Parser by Luca Molteni@JUGMilano [https://www.youtube.com/watch?v=_WMZKIHTI9c]
+- *Complete Guide* by Federico Tomassetti [https://tomassetti.me/domain-specific-languages/]
+- *Domain Specific Language Guide* by Martin Fowler [https://martinfowler.com/dsl.html]
+- *Metaprogrammazione con JavaParser* by Luca Molteni [https://www.youtube.com/watch?v=_WMZKIHTI9c]
