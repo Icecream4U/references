@@ -62,6 +62,6 @@ list of links and references on architectures, best practise, methodologies and 
 - **Socio-technical practice as craft** by Michael Featers [https://www.youtube.com/watch?v=4HdgYZ4p7qc] (on Conway's law and Mythical Man Months and so on)
 - **Hacking Your Work Life Balance** by Jennifer Wadella [https://marc-bouvier.github.io/2018/08/13/hacking-your-work-life-balance-Jennifer-Wadella/]
 
-## Domain Specific Languages - DSLs
+## DSLs
 - Complete Guide by Federico Tomassetti [https://tomassetti.me/domain-specific-languages/]
 - Domain Specific Language Guide by Martin Fowler [https://martinfowler.com/dsl.html]
