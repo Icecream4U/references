@@ -34,6 +34,7 @@ list of links and references on architectures, best practise, methodologies and 
 - **On TDD and design** by Sandro Mancuso (contains also the difference between classicist TDD and Outside In) [https://www.youtube.com/watch?v=KyFVA4Spcgg]
 - **mockist TDD** by Gabriele Tondi (XPug Milano) [https://www.youtube.com/watch?v=DiYhBwc9diQ]
 - **Integrated Tests Are A Scam** by JB Rainsberger [https://www.youtube.com/watch?v=VDfX44fZoMc]
+  + World's Best Intro to TDD course [https://online-training.jbrains.ca/p/wbitdd-01]
 
 #### Kata 
 - *katalyst by Codurance* [https://katalyst.codurance.com/]
