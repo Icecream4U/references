@@ -7,6 +7,8 @@ list of links and references on architectures, best practise, methodologies and 
 - **Martin Fowler** [https://martinfowler.com/]
 - **c2 wiki** [https://wiki.c2.com/]
 - **Kent Beck on medium** [https://medium.com/@kentbeck_7670]
+- **Uncle Bob Martin** [https://http://blog.cleancoder.com]
+- **J.B. Rainsberger** [https://blog.thecodewhisperer.com/]
 
 ## Architectures
 - **Clean Architecture** by Uncle Bob (2012) [https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html]
