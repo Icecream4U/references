@@ -70,3 +70,6 @@ list of links and references on architectures, best practise, methodologies and 
 - *Complete Guide* by Federico Tomassetti [https://tomassetti.me/domain-specific-languages/]
 - *Domain Specific Language Guide* by Martin Fowler [https://martinfowler.com/dsl.html]
 - *Metaprogrammazione con JavaParser* by Luca Molteni [https://www.youtube.com/watch?v=_WMZKIHTI9c]
+
+## DevOps
+- **Twelve Factor App** [https://12factor.net/]
