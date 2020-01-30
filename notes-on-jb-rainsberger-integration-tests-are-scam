@@ -1,0 +1,14 @@
+C I ||Contract|| S
+
+*Left (Interface) side* -> collaboration tests       collaborations test hard => need more abstraction => push on the design
+expectation (test the interface api)
+stub (fake the return of the api)
+
+*Right side* -> contract tests
+action to match expectation
+assertion to match stubbed result
+
+-----------------------
+If we use some sort of hexagonal architecture we need to use integration test only on the "outside world" bound (the adapter)
+possibly having it as much thin as possible using interface layers to bring to 0 the amount of duplicated code in integration tests
+which means having the smallest and fewer possible intergration tests
