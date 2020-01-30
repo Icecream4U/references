@@ -35,6 +35,9 @@ list of links and references on architectures, best practise, methodologies and 
 - **mockist TDD** by Gabriele Tondi (XPug Milano) [https://www.youtube.com/watch?v=DiYhBwc9diQ]
 - **Integrated Tests Are A Scam** by JB Rainsberger [https://www.youtube.com/watch?v=VDfX44fZoMc] (notes: https://github.com/Icecream4U/references/blob/master/notes-on-jb-rainsberger-integration-tests-are-scam)
   + World's Best Intro to TDD course [https://online-training.jbrains.ca/p/wbitdd-01]
+- **Testing microservices**
+  + microservice testing (https://martinfowler.com/articles/microservice-testing/)
+  + ebook (https://github.com/hamvocke/testing-microservices-ebook/blob/master/testing-microservices.adoc)
 
 #### Kata 
 - *katalyst by Codurance* [https://katalyst.codurance.com/]
