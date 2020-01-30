@@ -3,6 +3,10 @@ run a container
 ```
 docker run -d --hostname my-rabbit --name local-rabbit -p 8080:15672 rabbitmq:3-management
 ```
+run a container in host network mode (doesn't work on macOS)
+```
+docker run -d --network host --name grafana grafana/grafana:latest
+```
 inspect a container
 ```
 docker inspect local-rabbit
