@@ -20,6 +20,7 @@ list of links and references on architectures, best practise, methodologies and 
 - **iterative nature of the 4 rules** by J.B. Rainsberger [https://blog.thecodewhisperer.com/permalink/putting-an-age-old-battle-to-rest]
 - **Outside-In design** by Sandro Mancuso [https://www.youtube.com/watch?v=fKHYBnuPApY]
 - **Simple design: the least understood XP practise** by Matteo Vaccari [https://vimeo.com/351825916]
+- **Refactoring: not on the backlog** by Ron Jeffries [https://ronjeffries.com/xprog/articles/refactoring-not-on-the-backlog/]
 
 ## DDD - Domain Driven Design
 - **Awesome DDD** list of everything about DDD [https://github.com/heynickc/awesome-ddd]
