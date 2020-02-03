@@ -21,6 +21,7 @@ list of links and references on architectures, best practise, methodologies and 
 - **Outside-In design** by Sandro Mancuso [https://www.youtube.com/watch?v=fKHYBnuPApY]
 - **Simple design: the least understood XP practise** by Matteo Vaccari [https://vimeo.com/351825916]
 - **Refactoring: not on the backlog** by Ron Jeffries [https://ronjeffries.com/xprog/articles/refactoring-not-on-the-backlog/]
+- **Let it CRASH!** (https://www.amberbit.com/blog/2019/7/26/the-misunderstanding-of-let-it-crash/)
 
 ## DDD - Domain Driven Design
 - **Awesome DDD** list of everything about DDD [https://github.com/heynickc/awesome-ddd]
