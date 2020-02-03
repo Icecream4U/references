@@ -28,6 +28,7 @@ list of links and references on architectures, best practise, methodologies and 
 ## SOLID principles
 - **Principles of Object Oriented Design** [http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod]
 - **Dependency inversion principle** [https://www.martinfowler.com/articles/dipInTheWild.html]
+- **Solid principles made easy** [https://hackernoon.com/solid-principles-made-easy-67b1246bcdf]
 
 ## TDD
 - **TDD resources to start** by Matteo Vaccari [http://matteo.vaccari.name/blog/selected-tdd-resources-to-start]
