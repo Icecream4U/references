@@ -58,6 +58,7 @@ list of links and references on architectures, best practise, methodologies and 
 ## Microservices
 - **Microservices Guide** by Martin Fowler [https://www.martinfowler.com/microservices/]
 - **Microservices top 3 errors** by Gabriele Lana [https://www.youtube.com/watch?v=_fszoPz7muU][**Notes:** https://github.com/Icecream4U/references/blob/master/NOTES-microservices_top_3_errors_by_GabrieleLana]
+- **CAP Theorem** by Bruno Bossola [https://www.youtube.com/watch?v=Oo2nlUXIJGE]
 
 ## Agile stuff
 - [Manifesto for Agile Software Development](https://agilemanifesto.org/)
