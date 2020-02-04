@@ -40,7 +40,7 @@ list of links and references on architectures, best practise, methodologies and 
 - **Integrated Tests Are A Scam** by JB Rainsberger [https://www.youtube.com/watch?v=VDfX44fZoMc] (notes: https://github.com/Icecream4U/references/blob/master/notes-on-jb-rainsberger-integration-tests-are-scam)
   + World's Best Intro to TDD course [https://online-training.jbrains.ca/p/wbitdd-01]
   + when it is safe to introduct test doubles [https://blog.thecodewhisperer.com/permalink/when-is-it-safe-to-introduce-test-doubles]
-- **Some underrated elements of success for the modern programmer** by JB Rainsberger [https://www.youtube.com/watch?v=mbcV_Qdb7Ts] (notes: ) on TDD, 3 Stage of TDD, Path to Effectiveness (https://blog.jbrains.ca/permalink/a-proven-path-to-effectiveness)
+- **Some underrated elements of success for the modern programmer** by JB Rainsberger on TDD, 3 Stage of TDD, Path to Effectiveness [https://www.youtube.com/watch?v=mbcV_Qdb7Ts] (https://blog.jbrains.ca/permalink/a-proven-path-to-effectiveness) (notes: https://github.com/Icecream4U/references/blob/master/underrated_elements_of_success_jb_rainsberger.png)
 - **Testing microservices**
   + microservice testing (https://martinfowler.com/articles/microservice-testing/)
   + ebook (https://github.com/hamvocke/testing-microservices-ebook/blob/master/testing-microservices.adoc)
