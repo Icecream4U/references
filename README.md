@@ -3,6 +3,8 @@ list of links and references on architectures, best practise, methodologies and 
 
 `I'm not a great programmer; I'm just a good programmer with great habits.` *-Kent Beck*
 
+`I'm not losing time refactoring! I'm reducing volatility in the marginal cost of features!` *-JB Rainsberger*
+
 ## General links
 - **Martin Fowler** [https://martinfowler.com/]
 - **c2 wiki** [https://wiki.c2.com/]
