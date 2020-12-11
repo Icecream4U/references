@@ -1,4 +1,4 @@
 Strong cohesion and loose coupling
 
-Any technology that pushes us to expose internal representation detail should be avoided
+Any technology that pushes us to expose internal representation detail should be avoided. Share behaviour not representation.
 
