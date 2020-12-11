@@ -4,7 +4,7 @@ Any technology that pushes us to expose internal representation detail should be
 
 Orchestration Versus Choreography
 
-
+keep your middleware dumb, and keep the smarts in the endpoints
 
 
 
