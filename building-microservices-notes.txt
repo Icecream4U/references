@@ -3,3 +3,18 @@ Strong cohesion and loose coupling
 Any technology that pushes us to expose internal representation detail should be avoided. Share behaviour not representation.
 
 Orchestration Versus Choreography
+
+
+
+
+
+
+
+
+
+-----------
+## Links ##
+-----------
+DDD Bounded Context Explained: https://web.archive.org/web/20130101104734/http://www.sapiensworks.com/blog/post/2012/04/17/DDD-The-Bounded-Context-Explained.aspx
+
+Richardson REST maturity model: https://martinfowler.com/articles/richardsonMaturityModel.html
