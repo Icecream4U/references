@@ -1,0 +1,2 @@
+Any technology that pushes us to expose internal representation detail should be avoided
+
