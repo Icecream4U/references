@@ -27,3 +27,10 @@ Tolerant Reader: https://martinfowler.com/bliki/TolerantReader.html
 REST in Practice (O’Reilly)
 
 Enterprise Integration Patterns: Designing, Building, and Deploying Messaging Solutions (Addison Wesley)
+
+
+---------
+## Cit ##
+---------
+Postel’s Law (otherwise known as the robustness principle): “Be conservative in what you do, be liberal in what you accept from others.” [https://tools.ietf.org/html/rfc761]
+
