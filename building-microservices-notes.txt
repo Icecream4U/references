@@ -21,6 +21,8 @@ Richardson REST maturity model: https://martinfowler.com/articles/richardsonMatu
 
 Tolerant Reader: https://martinfowler.com/bliki/TolerantReader.html
 
+Semantic versioning: https://semver.org/
+
 -----------
 ## Books ##
 -----------
