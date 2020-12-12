@@ -23,6 +23,8 @@ Tolerant Reader: https://martinfowler.com/bliki/TolerantReader.html
 
 Semantic versioning: https://semver.org/
 
+Expand and contract pattern: https://martinfowler.com/bliki/ParallelChange.html
+
 -----------
 ## Books ##
 -----------
