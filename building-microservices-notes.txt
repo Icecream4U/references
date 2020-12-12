@@ -19,6 +19,8 @@ DDD Bounded Context Explained: https://web.archive.org/web/20130101104734/http:/
 
 Richardson REST maturity model: https://martinfowler.com/articles/richardsonMaturityModel.html
 
+Tolerant Reader: https://martinfowler.com/bliki/TolerantReader.html
+
 -----------
 ## Books ##
 -----------
