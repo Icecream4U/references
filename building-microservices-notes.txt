@@ -36,6 +36,8 @@ Enterprise Integration Patterns: Designing, Building, and Deploying Messaging So
 
 Working Effectively with Legacy Code
 
+Refactoring Databases by Scott J. Ambler and Pramod J. Sadalage (Addison-Wesley)
+
 ---------
 ## Cit ##
 ---------
