@@ -41,3 +41,8 @@ Working Effectively with Legacy Code
 ---------
 Postel’s Law (otherwise known as the robustness principle): “Be conservative in what you do, be liberal in what you accept from others.” [https://tools.ietf.org/html/rfc761]
 
+-----------
+## Tools ##
+-----------
+Structure 101
+Schema spy: http://schemaspy.sourceforge.net/
