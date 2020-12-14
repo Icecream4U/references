@@ -8,7 +8,9 @@ keep your middleware dumb, and keep the smarts in the endpoints
 
 don’t violate DRY within a microservice, but be relaxed about violating DRY across all services. The evils of too much coupling between services are far worse than the problems caused by code duplication
 
+----
 
+Distributed transaction -> transaction manager -> 2 phase commit
 
 
 
