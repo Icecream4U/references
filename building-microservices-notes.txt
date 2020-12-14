@@ -34,6 +34,7 @@ REST in Practice (O’Reilly)
 
 Enterprise Integration Patterns: Designing, Building, and Deploying Messaging Solutions (Addison Wesley)
 
+Working Effectively with Legacy Code
 
 ---------
 ## Cit ##
