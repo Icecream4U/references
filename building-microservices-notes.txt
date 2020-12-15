@@ -12,7 +12,7 @@ don’t violate DRY within a microservice, but be relaxed about violating DRY ac
 
 Eventual consistency (local retry until it works) VS Distributed transaction (transaction manager -> 2 phase commit)
 
-
+class-responsibility-collaboration (CRC) cards with services used as class
 
 -----------
 ## Links ##
