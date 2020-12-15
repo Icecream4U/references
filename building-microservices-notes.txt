@@ -40,6 +40,8 @@ Working Effectively with Legacy Code
 
 Refactoring Databases by Scott J. Ambler and Pramod J. Sadalage (Addison-Wesley)
 
+Continous Integration | Continous Realising (both) by Jez Humble and Dave Farley 
+
 ---------
 ## Cit ##
 ---------
