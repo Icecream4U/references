@@ -49,6 +49,10 @@ Continuous Delivery by Jez Humble and Dave Farley
 
 Agile Testing by Lisa Crispin and Janet Gregory
 
+Succeeding with Agile by Mike Cohn
+
+Growing Object-Oriented Software, Guided by Tests, by Steve Freeman and Nat Pryce
+
 ---------
 ## Cit ##
 ---------
