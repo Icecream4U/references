@@ -14,6 +14,11 @@ Eventual consistency (local retry until it works) VS Distributed transaction (tr
 
 class-responsibility-collaboration (CRC) cards with services used as class
 
+----
+
+Avoid "configuration drift": the code in source control no longer reflects the configuration of the running host
+We can resolve it with "Immutable servers"
+
 -----------
 ## Links ##
 -----------
