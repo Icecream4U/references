@@ -45,7 +45,9 @@ Working Effectively with Legacy Code
 
 Refactoring Databases by Scott J. Ambler and Pramod J. Sadalage (Addison-Wesley)
 
-Continous Integration | Continous Realising (both) by Jez Humble and Dave Farley 
+Continuous Delivery by Jez Humble and Dave Farley 
+
+Agile Testing by Lisa Crispin and Janet Gregory
 
 ---------
 ## Cit ##
