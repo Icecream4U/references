@@ -30,6 +30,8 @@ Test Journeys, Not Stories -> Consumer driven Contracts
 
 Using blue/green deployments to separate deployment from release: Deploy new versione -> run smoke test against it -> Redirect traffic
 
+Canary releasing: we are verifying our newly deployed software by directing amounts of production traffic against the system to see if it performs as expected
+
 -----------
 ## Links ##
 -----------
