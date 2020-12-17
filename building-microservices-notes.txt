@@ -19,6 +19,11 @@ class-responsibility-collaboration (CRC) cards with services used as class
 Avoid "configuration drift": the code in source control no longer reflects the configuration of the running host
 We can resolve it with "Immutable servers"
 
+----
+
+A test suite with flaky tests can become a victim of what Diane Vaughan calls the normalization of deviance. The idea that over time we can become so accustomed to things being wrong that we start to accept them as being normal and not a problem 
+(Diane Vaughan, The Challenger Launch Decision: Risky Technology, Culture, and Deviance at NASA (Chicago: University of Chicago Press, 1996))
+
 -----------
 ## Links ##
 -----------
