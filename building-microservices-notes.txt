@@ -34,6 +34,8 @@ Expand and contract pattern: https://martinfowler.com/bliki/ParallelChange.html
 
 Strangler application pattern: https://martinfowler.com/bliki/StranglerFigApplication.html
 
+Test doubles: https://www.martinfowler.com/bliki/TestDouble.html
+
 -----------
 ## Books ##
 -----------
