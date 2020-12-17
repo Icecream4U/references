@@ -28,6 +28,8 @@ The best balance I have found is to treat the end-to-end test suite as a shared 
 
 Test Journeys, Not Stories -> Consumer driven Contracts
 
+Using blue/green deployments to separate deployment from release: Deploy new versione -> run smoke test against it -> Redirect traffic
+
 -----------
 ## Links ##
 -----------
