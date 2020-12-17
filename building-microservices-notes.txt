@@ -32,6 +32,8 @@ Using blue/green deployments to separate deployment from release: Deploy new ver
 
 Canary releasing: we are verifying our newly deployed software by directing amounts of production traffic against the system to see if it performs as expected
 
+Cross-functional requirements: Nonfunctional requirements is an umbrella term used to describe those characteristics your system exhibits that cannot simply be implemented like a normal feature. They include aspects like the acceptable latency of a web page, the number of users a system should support, how accessible your user interface should be to people with disabilities, or how secure your customer data should be.
+
 -----------
 ## Links ##
 -----------
