@@ -24,6 +24,8 @@ We can resolve it with "Immutable servers"
 A test suite with flaky tests can become a victim of what Diane Vaughan calls the normalization of deviance. The idea that over time we can become so accustomed to things being wrong that we start to accept them as being normal and not a problem 
 (Diane Vaughan, The Challenger Launch Decision: Risky Technology, Culture, and Deviance at NASA (Chicago: University of Chicago Press, 1996))
 
+The best balance I have found is to treat the end-to-end test suite as a shared codebase, but with joint ownership. Teams are free to check in to this suite, but the ownership of the health of the suite has to be shared between the teams developing the services themselves. If you want to make extensive use of end-to-end tests with multiple teams I think this approach is essential, and yet I have seen it done very rarely, and never without issue
+
 -----------
 ## Links ##
 -----------
