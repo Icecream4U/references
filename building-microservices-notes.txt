@@ -45,6 +45,8 @@ Test doubles: https://www.martinfowler.com/bliki/TestDouble.html
 
 Eradicating non determinism in tests: https://martinfowler.com/articles/nonDeterminism.html
 
+Enterprise integration using REST: https://martinfowler.com/articles/enterpriseREST.html
+
 -----------
 ## Books ##
 -----------
