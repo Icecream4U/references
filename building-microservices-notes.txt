@@ -82,3 +82,5 @@ https://www.packer.io/
 
 Mountebank for test doubles: http://www.mbtest.org/
 
+Pact (consumer-driven testing tool): https://docs.pact.io/
+
