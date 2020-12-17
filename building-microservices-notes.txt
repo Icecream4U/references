@@ -41,6 +41,8 @@ Strangler application pattern: https://martinfowler.com/bliki/StranglerFigApplic
 
 Test doubles: https://www.martinfowler.com/bliki/TestDouble.html
 
+Eradicating non determinism in tests: https://martinfowler.com/articles/nonDeterminism.html
+
 -----------
 ## Books ##
 -----------
