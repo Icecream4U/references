@@ -39,6 +39,17 @@ Cross-functional requirements: Nonfunctional requirements is an umbrella term us
 there is an old adage that 80% of software features are never used. Now I can’t comment on how accurate that figure is, but as someone who has been developing software for nearly 20 years, I know that I have spent a lot of time on features that never actually get used. Wouldn’t it be nice to know what they are?
 we are getting better than ever at reacting to how our users are using our system to work out how to improve it. Metrics that inform us of how our systems behave can only help us here. We push out a new version of the website, and find that the number of searches by genre has gone up significantly on the catalog service. Is that a problem, or expected?
 
+synthetic transaction to enable semantic monitoring to better understand metrics before going on production
+
+correlationsID (or Zipkin) to trace the results of an entry call in your system and all subsequent call the many services => mandatory in event-drive architecture patterns
+
+be aware of the cascade: a service that go down and throws down every service that call it
+
+With services collaborating in lots of different ways to provide capabilities to users using multiple interfaces, you need to view the system in a holistic way.
+You should try to write your logs out in a standard format. You definitely want to have all your metrics in one place, and you may want to have a list of standard names for your metrics too; it would be very annoying for one service to have a metric called ResponseTime, and another to have one called RspTimeSecs, when they mean the same thing.
+
+So why handle operational and business metrics in the same way? Ultimately, both types of things break down to events that say something happened at X. So, if we can unify the systems we use to gather, aggregate, and store these events, and make them available for reporting, we end up with a much simpler architecture.
+
 -----------
 ## Links ##
 -----------
@@ -78,6 +89,8 @@ Agile Testing by Lisa Crispin and Janet Gregory
 Succeeding with Agile by Mike Cohn
 
 Growing Object-Oriented Software, Guided by Tests, by Steve Freeman and Nat Pryce
+
+Information Dashboard Design: Displaying Data for At-a-Glance Monitoring by Steven Few
 
 ---------
 ## Cit ##
