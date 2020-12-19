@@ -34,6 +34,11 @@ Canary releasing: we are verifying our newly deployed software by directing amou
 
 Cross-functional requirements: Nonfunctional requirements is an umbrella term used to describe those characteristics your system exhibits that cannot simply be implemented like a normal feature. They include aspects like the acceptable latency of a web page, the number of users a system should support, how accessible your user interface should be to people with disabilities, or how secure your customer data should be.
 
+----
+
+there is an old adage that 80% of software features are never used. Now I can’t comment on how accurate that figure is, but as someone who has been developing software for nearly 20 years, I know that I have spent a lot of time on features that never actually get used. Wouldn’t it be nice to know what they are?
+we are getting better than ever at reacting to how our users are using our system to work out how to improve it. Metrics that inform us of how our systems behave can only help us here. We push out a new version of the website, and find that the number of searches by genre has gone up significantly on the catalog service. Is that a problem, or expected?
+
 -----------
 ## Links ##
 -----------
