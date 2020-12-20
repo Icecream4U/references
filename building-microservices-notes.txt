@@ -94,6 +94,8 @@ Growing Object-Oriented Software, Guided by Tests, by Steve Freeman and Nat Pryc
 
 Information Dashboard Design: Displaying Data for At-a-Glance Monitoring by Steven Few
 
+Cryptography Engineering by Niels Ferguson, Bruce Schneier, and Tadayoshi Kohno
+
 ---------
 ## Cit ##
 ---------
