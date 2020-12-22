@@ -52,7 +52,8 @@ So why handle operational and business metrics in the same way? Ultimately, both
 
 ----
 
-Netflix designed the organizational struc‐ ture for the system architecture it wanted.
+Netflix designed the organizational structure for the system architecture it wanted.
+Amazon's two-pizza teams, where no team should be so big that it could not be fed with two pizzas
 
 -----------
 ## Links ##
