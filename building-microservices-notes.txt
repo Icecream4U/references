@@ -101,6 +101,8 @@ Information Dashboard Design: Displaying Data for At-a-Glance Monitoring by Stev
 
 Cryptography Engineering by Niels Ferguson, Bruce Schneier, and Tadayoshi Kohno
 
+Exploring the Duality Between Product and Organizational Architectures
+
 ---------
 ## Cit ##
 ---------
