@@ -101,6 +101,10 @@ Cryptography Engineering by Niels Ferguson, Bruce Schneier, and Tadayoshi Kohno
 ---------
 Postel’s Law (otherwise known as the robustness principle): “Be conservative in what you do, be liberal in what you accept from others.” [https://tools.ietf.org/html/rfc761]
 
+Melvin Conway’s paper How Do Committees Invent, published in Datamation maga‐ zine in April 1968, observed that:
+Any organization that designs a system (defined more broadly here than just informa‐ tion systems) will inevitably produce a design whose structure is a copy of the organi‐ zation’s communication structure.
+This statement is often quoted, in various forms, as Conway’s law. Eric S. Raymond summarized this phenomenon in The New Hacker’s Dictionary (MIT Press) by stating “If you have four groups working on a compiler, you’ll get a 4-pass compiler.”
+
 -----------
 ## Tools ##
 -----------
