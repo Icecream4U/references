@@ -50,6 +50,10 @@ You should try to write your logs out in a standard format. You definitely want 
 
 So why handle operational and business metrics in the same way? Ultimately, both types of things break down to events that say something happened at X. So, if we can unify the systems we use to gather, aggregate, and store these events, and make them available for reporting, we end up with a much simpler architecture.
 
+----
+
+Netflix designed the organizational struc‐ ture for the system architecture it wanted.
+
 -----------
 ## Links ##
 -----------
