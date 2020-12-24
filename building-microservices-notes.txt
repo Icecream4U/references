@@ -78,7 +78,7 @@ Enterprise integration using REST: https://martinfowler.com/articles/enterpriseR
 
 Salted password hashing: https://crackstation.net/hashing-security.htm#properhashing
 
-Fallacies of distributed computed: https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing
+Fallacies of distributed computing: https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing
 
 -----------
 ## Books ##
