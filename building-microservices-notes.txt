@@ -55,6 +55,51 @@ So why handle operational and business metrics in the same way? Ultimately, both
 Netflix designed the organizational structure for the system architecture it wanted.
 Amazon's two-pizza teams, where no team should be so big that it could not be fed with two pizzas
 
+----
+
+I’m amazed at how many organizations put processes and controls in place to try to stop failure from occurring, but put little to no thought into actually making it easier to recover from failure in the first place.
+I saw one example of this thinking while spending some time on the Google campus many years ago. In the reception area of one of the buildings in Mountain View was an old rack of machines, there as a sort of exhibit. I noticed a couple of things. First, these servers weren’t in server enclosures, they were just bare motherboards slotted into the rack. The main thing I noticed, though, was that the hard drives were attached by velcro. I asked one of the Googlers why that was. “Oh,” he said, “the hard drives fail so much we don’t want them screwed in. We just rip them out, throw them in the bin, and velcro in a new one.
+Why not use a bare motherboard with cheaper components (and some velcro) like Google did, rather than worrying too much about the resiliency of a single node?
+
+When it comes to considering if and how to scale out your system to better handle load or failure, start by trying to understand the following requirements:
+- Response time/latency (ex: We expect the website to have a 90th-percentile response time of 2 seconds when handling 200 concurrent connections per second)
+- Availability: Can you expect a service to be down? Is this considered a 24/7 service? Some people like to look at periods of acceptable downtime when measuring availabil‐ ity, but how useful is this to someone calling your service? I should either be able to rely on your service responding or not. Measuring periods of downtime is really more useful from a historical reporting angle.
+- Durability of data: How much data loss is acceptable? How long should data be kept for? (ex: you might choose to keep user session logs for a year or less to save space, but your financial transaction records might need to be kept for many years)
+
+Understand the impact of each outage and work out how to properly degrade functionality. If the shopping cart service is unavailable, we’re probably in a lot of trouble, but we could still show the web page with the listing. Perhaps we just hide the shopping cart or replace it with an icon saying “Be Back Soon!”. 
+With a single, monolithic application, we don’t have many decisions to make. System health is binary. But with a microservice architecture, we need to consider a much more nuanced situation. The right thing to do in any situation is often not a technical decision. We might know what is technically possible when the shopping cart is down, but unless we understand the business context we won’t understand what action we should be taking.
+
+We discovered the hard way that systems that just act slow are much harder to deal with than systems that just fail fast. In a distributed system, latency kills.
+
+--
+The Antifragile Organization:
+Some organizations would be happy with game days, where failure is simulated by systems being switched off and having the various teams react. During my time at Google, this was a fairly common occurrence for various systems, and I certainly think that many organizations could benefit from having these sorts of exercises reg‐ ularly. Google goes beyond simple tests to mimic server failure, and as part of its annual DiRT (Disaster Recovery Test) exercises it has simulated large-scale disasters such as earthquakes. Netflix also takes a more aggressive approach, by writing pro‐ grams that cause failure and running them in production on a daily basis (Netflix's Simian Army). Embracing and inciting failure through software, and building systems that can handle it, is only part of what Netflix does. It also understands the importance of learning from the failure when it occurs, and adopting a blameless culture when mistakes do happen. Developers are further empowered to be part of this learning and evolving process, as each developer is also responsible for managing his or her production services.
+
+So what do we need to do to handle failure in our systems?
+
+- Timeouts: Timeouts are something it is easy to overlook, but in a downstream system they are important to get right. How long can I wait before I can consider a downstream sys‐ tem to actually be down?
+Wait too long to decide that a call has failed, and you can slow the whole system down. Time out too quickly, and you’ll consider a call that might have worked as failed. Have no timeouts at all, and a downstream system being down could hang your whole system.
+Put timeouts on all out-of-process calls, and pick a default timeout for everything. Log when timeouts occur, look at what happens, and change them accordingly.
+
+- Circuit Breakers: How you implement a circuit breaker depends on what a failed request means, but when I’ve implemented them for HTTP connections I’ve taken failure to mean either a timeout or a 5XX HTTP return code. In this way, when a downstream resource is down, or timing out, or returning errors, after a certain threshold is reached we auto‐ matically stop sending traffic and start failing fast. And we can automatically start again when things are healthy.
+
+- Bulkheads: a way to isolate yourself from failure. In shipping, a bulkhead is a part of the ship that can be sealed off to protect the rest of the ship. So if the ship springs a leak, you can close the bulkhead doors. You lose part of the ship, but the rest of it remains intact. 
+Separation of concerns can also be a way to implement bulkheads. By teasing apart functionality into separate microservices, we reduce the chance of an outage in one area affecting another. Look at all the aspects of your system that can go wrong, both inside your microservi‐ ces and between them. Do you have bulkheads in place? I’d suggest starting with sep‐ arate connection pools for each downstream connection at the very least. You may want to go further, however, and consider using circuit breakers too.
+We can think of our circuit breakers as an automatic mechanism to seal a bulkhead, to not only protect the consumer from the downstream problem, but also to poten‐ tially protect the downstream service from more calls that may be having an adverse impact. Given the perils of cascading failure, I’d recommend mandating circuit break‐ ers for all your synchronous downstream calls.
+
+In many ways, bulkheads are the most important of these three patterns. Timeouts and circuit breakers help you free up resources when they are becoming constrained, but bulkheads can ensure they don’t become constrained in the first place. Hystrix allows you, for example, to implement bulkheads that actually reject requests in certain conditions to ensure that resources don’t become even more saturated; this is known as load shedding. Sometimes rejecting a request is the best way to stop an important system from becoming overwhelmed and being a bottleneck for multiple upstream services.
+
+Isolation: The more one service depends on another being up, the more the health of one impacts the ability of the other to do its job. If we can use integration techniques that allow a downstream server to be offline, upstream services are less likely to be affec‐ ted by outages, planned or unplanned.
+There is another benefit to increasing isolation between services. When services are isolated from each other, much less coordination is needed between service owners. The less coordination needed between teams, the more autonomy those teams have, as they are able to operate and evolve their services more freely.
+--
+
+Idempotency: In idempotent operations, the outcome doesn’t change after the first application, even if the operation is subsequently applied multiple times. If operations are idempotent, we can repeat the call multiple times without adverse impact. This is very useful when we want to replay messages that we aren’t sure have been processed, a common way of recovering from error. Some of the HTTP verbs, such as GET and PUT, are defined in the HTTP specifica‐ tion to be idempotent, but for that to be the case, they rely on your service handling these calls in an idempotent manner. If you start making these verbs nonidempotent, but callers think they can safely execute them repeatedly, you may get yourself into a mess
+
+As Jeff Dean said in his presentation “Challenges in Building Large-Scale Information Retrieval Systems” (WSDM 2009 conference), you should “design for ~10× growth, but plan to rewrite before ~100×.” At certain points, you need to do something pretty radical to support the next level of growth.
+The need to change our systems to deal with scale isn’t a sign of failure. It is a sign of success.
+
+
+
 -----------
 ## Links ##
 -----------
@@ -79,6 +124,8 @@ Enterprise integration using REST: https://martinfowler.com/articles/enterpriseR
 Salted password hashing: https://crackstation.net/hashing-security.htm#properhashing
 
 Fallacies of distributed computing: https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing
+
+The antifragile organization: https://queue.acm.org/detail.cfm?id=2499552
 
 -----------
 ## Books ##
@@ -105,6 +152,10 @@ Cryptography Engineering by Niels Ferguson, Bruce Schneier, and Tadayoshi Kohno
 
 Exploring the Duality Between Product and Organizational Architectures
 
+Antifragile by Nassim Taleb
+
+Release it! by Michael Nygard
+
 ---------
 ## Cit ##
 ---------
@@ -127,4 +178,4 @@ Pact (consumer-driven testing tool): https://docs.pact.io/
 
 Zed attack proxy (ZAD): https://owasp.org/www-project-zap/
 
-
+Netflix’s Hystrix library (JVM circuit breaker): https://github.com/Netflix/Hystrix
