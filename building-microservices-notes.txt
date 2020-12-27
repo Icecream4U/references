@@ -98,7 +98,11 @@ Idempotency: In idempotent operations, the outcome doesn’t change after the fi
 As Jeff Dean said in his presentation “Challenges in Building Large-Scale Information Retrieval Systems” (WSDM 2009 conference), you should “design for ~10× growth, but plan to rewrite before ~100×.” At certain points, you need to do something pretty radical to support the next level of growth.
 The need to change our systems to deal with scale isn’t a sign of failure. It is a sign of success.
 
-
+--
+Caching
+In client-side caching, the client stores the cached result. The client gets to decide when (and if) it goes and retrieves a fresh copy. Ideally, the downstream service will provide hints to help the client understand what to do with the response, so it knows when and if to make a new request. 
+With proxy caching, a proxy is placed between the client and the server. A great example of this is using a reverse proxy or content delivery network (CDN). 
+With server-side caching, the server handles caching responsibility, perhaps making use of a system like Redis or Memcache, or even a simple in-memory cache.
 
 -----------
 ## Links ##
