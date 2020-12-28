@@ -104,6 +104,41 @@ In client-side caching, the client stores the cached result. The client gets to 
 With proxy caching, a proxy is placed between the client and the server. A great example of this is using a reverse proxy or content delivery network (CDN). 
 With server-side caching, the server handles caching responsibility, perhaps making use of a system like Redis or Memcache, or even a simple in-memory cache.
 
+HTTP caching: ETags, Expires, and cache-control
+
+Caching for write: write data in a persisted cache and periodically write those data in the storage. Could be useful for burst write of duplicated data or to decouple the write process. Wheter storage goes down the cache will work like a queue to prevent data losing and let system work.
+
+Caching for resilience: Caching can be used to implement resiliency in case of failure. With client-side cach‐ ing, if the downstream service is unavailable, the client could decide to simply use cached but potentially stale data. We could also use something like a reverse proxy to serve up stale data. For some systems, being available even with stale data is better than not returning a result at all, but that is a judgment call you’ll have to make. Obviously, if we don’t have the requested data in the cache, then we can’t do much to help, but there are ways to mitigate this.
+A technique I saw used at the Guardian, and subsequently elsewhere, was to crawl the existing live site periodically to generate a static version of the website that could be served in the event of an outage. Although this crawled version wasn’t as fresh as the cached content served from the live system, in a pinch it could ensure that a version of the site would get displayed.
+
+Hiding the origin: With a normal cache, if a request results in a cache miss, the request goes on to the origin to fetch the fresh data with the caller blocking, waiting on the result. In the normal course of things, this is to be expected. But if we suffer a massive cache miss, perhaps because an entire machine (or group of machines) that provide our cache fail, a large number of requests will hit the origin.
+For those services that serve up highly cachable data, it is common for the origin itself to be scaled to handle only a fraction of the total traffic, as most requests get served out of memory by the caches that sit in front of the origin. If we suddenly get a thun‐ dering herd due to an entire cache region vanishing, our origin could be pummelled out of existence.
+One way to protect the origin in such a situation is never to allow requests to go to the origin in the first place. Instead, the origin itself populates the cache asynchro‐ nously when needed, as shown in Figure 11-7. If a cache miss is caused, this triggers an event that the origin can pick up on, alerting it that it needs to repopulate the cache. So if an entire shard has vanished, we can rebuild the cache in the background. We could decide to block the original request waiting for the region to be repopula‐ ted, but this could cause contention on the cache itself, leading to further problems. It’s more likely if we are prioritizing keeping the system stable that we would fail the original request, but it would fail fast.
+This sort of approach may not make sense for some situations, but it can be a way to ensure the system remains up when parts of it fail. By failing requests fast, and ensur‐ ing we don’t take up resources or increase latency, we avoid a failure in our cache from cascading downstream and give ourselves a chance to recover.
+
+Keep it simple! Be careful about caching in too many places! The more caches between you and the source of fresh data, the more stale the data can be, and the harder it can be to deter‐ mine the freshness of the data that a client eventually sees. This can be especially problematic with a microservice architecture where you have multiple services involved in a call chain. Again, the more caching you have, the harder it will be to assess the freshness of any piece of data. So if you think a cache is a good idea, keep it simple, stick to one, and think carefully before adding more!
+
+Cache poisoning: wheter something goes wrong (like you release an Expires:never header!) there are also browser's cache and ISP's cache to consider. Caching can be very powerful indeed, but you need to understand the full path of data that is cached from source to destination to really appreciate its complexities and what can go wrong (to avoid changing url to permit users to read fresh data).
+--
+
+Austoscaling: reactive autoscaling vs predictive autoscaling. Maybe better to use a mix of both!
+
+--
+
+CAP Theorem: AP vs CP. As the people building the system, we know the trade-off exists. We know that AP systems scale more easily and are simpler to build, and we know that a CP system will require more work due to the challenges in supporting distributed consistency. But we may not understand the business impact of this trade-off. For our inventory system, if a record is out of date by five minutes, is that OK? If the answer is yes, an AP system might be the answer. But what about the balance held for a customer in a bank? Can that be out of date? Without knowing the context in which the operation is being used, we can’t know the right thing to do. Knowing about the CAP theorem just helps you understand that this trade-off exists and what questions to ask.
+Our system as a whole doesn’t need to be either AP or CP. Our catalog could be AP, as we don’t mind too much about a stale record. But we might decide that our inventory service needs to be CP, as we don’t want to sell a customer something we don’t have and then have to apologize later.
+But individual services don’t even need to be CP or AP.
+Let’s think about our points balance service, where we store records of how many loyalty points our customers have built up. We could decide that we don’t care if the balance we show for a customer is stale, but that when it comes to updating a balance we need it to be consistent to ensure that customers don’t use more points than they have available. Is this microservice CP, or AP, or is it both? Really, what we have done is push the trade-offs around the CAP theorem down to individual service capabilities.
+Let’s revisit our inventory system. This maps to real-world, physical items. We keep a count in our system of how many albums we have. At the start of the day we had 100 copies of Give Blood by The Brakes. We sold one. Now we have 99 copies. Easy, right? By what happens if when the order was being sent out, someone knocks a copy of the album onto the floor and it gets stepped on and broken? What happens now? Our systems say 99, but there are 98 copies on the shelf.
+What if we made our inventory system AP instead, and occasionally had to contact a user later on and tell him that one of his items is actually out of stock? Would that be the worst thing in the world? It would certainly be much easier to build, scale, and ensure it is correct.
+We have to recognize that no matter how consistent our systems might be in and of themselves, they cannot know everything that happens, especially when we’re keeping records of the real world. This is one of the main reasons why AP systems end up being the right call in many situations. Aside from the complexity of building CP systems, they can’t fix all our problems anyway.
+
+--
+Service Discovery
+
+DNS: I have seen a convention-based domain template work well. For example, we might have a template defined as <servicename>-<environment>.musiccorp.com, giving us entries like accounts-uat.musiccorp.com or accounts-dev.musiccorp.com. 
+For those situations where you need more than one instance of a host, have DNS entries resolve to load balancers that can handle putting individual hosts into and out of service as appropriate
+
 -----------
 ## Links ##
 -----------
@@ -160,6 +195,8 @@ Antifragile by Nassim Taleb
 
 Release it! by Michael Nygard
 
+REST In Practice
+
 ---------
 ## Cit ##
 ---------
@@ -168,6 +205,18 @@ Postel’s Law (otherwise known as the robustness principle): “Be conservative
 Melvin Conway’s paper How Do Committees Invent, published in Datamation maga‐ zine in April 1968, observed that:
 Any organization that designs a system (defined more broadly here than just informa‐ tion systems) will inevitably produce a design whose structure is a copy of the organi‐ zation’s communication structure.
 This statement is often quoted, in various forms, as Conway’s law. Eric S. Raymond summarized this phenomenon in The New Hacker’s Dictionary (MIT Press) by stating “If you have four groups working on a compiler, you’ll get a 4-pass compiler.”
+
+-------------
+## Advices ##
+-------------
+“Friends don’t let friends write their own crypto”
+“Friends don’t let friends write their own distributed consistent data store.” 
+
+----------------------
+## Personal Advices ##
+----------------------
+Keep an eye on the reality: you should build the mathematically perfect system which will be used by users which will try to do the worst things ever with your system or you are mapping real world staff that could change out of your control. The cost and the effort to be mathematically perfect worth the risk of beying fucked up by users or reality? Maybe it's better to KISS and do certain operation by hand instead of have a complexity moltiplicator. 
+Remember JP Rainsberger: avoid accidental complexity is the key!
 
 -----------
 ## Tools ##
@@ -183,3 +232,8 @@ Pact (consumer-driven testing tool): https://docs.pact.io/
 Zed attack proxy (ZAD): https://owasp.org/www-project-zap/
 
 Netflix’s Hystrix library (JVM circuit breaker): https://github.com/Netflix/Hystrix
+
+Consul
+
+https://github.com/Netflix/eureka
+
