@@ -1,5 +1,30 @@
+Microservices are ideal for big systems
+Microservice architecture is goal-oriented
+Microservices are focused on replaceability
 
+At the end of our three-day meeting, one of us called out a theme—that year it had been clear that many of the problems people were facing in the wild were related to building systems that were too big. “How can I rebuild a part of this,” “best ways to implement Strangler,” etc.
+Turning that on its head, the problem became “how can we build systems that are replaceable over being maintainable?”
+We used the term micro apps, I seem to remember.
+—James Lewis
 
+Microservices are small, autonomous services that work together.
+—Sam Newman, Thoughtworks
+
+Loosely coupled service-oriented architecture with bounded contexts.
+—Adrian Cockcroft, Battery Ventures
+
+A microservice is an independently deployable component of bounded scope that supports interoperability through message-based communication.
+Microservice architecture is a style of engineering highly automated, evolvable software systems made up of capability-aligned microservices.
+-Martin Fowler
+
+microservice applications share some important characteristics:
+• Small in size
+• Messaging enabled
+• Bounded by contexts
+• Autonomously developed
+• Independently deployable
+• Decentralized
+• Built and released with automated processes
 
 
 
