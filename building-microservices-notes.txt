@@ -140,6 +140,7 @@ DNS: I have seen a convention-based domain template work well. For example, we m
 For those situations where you need more than one instance of a host, have DNS entries resolve to load balancers that can handle putting individual hosts into and out of service as appropriate
 
 Dynamic Service Registry: Zookeper vs Consul vs Eureka vs build-your-own-on-AWS
+--
 
 -----------
 ## Links ##
@@ -167,6 +168,10 @@ Salted password hashing: https://crackstation.net/hashing-security.htm#properhas
 Fallacies of distributed computing: https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing
 
 The antifragile organization: https://queue.acm.org/detail.cfm?id=2499552
+
+HAL - Hypertext Application Language: http://stateless.co/hal_specification.html
+
+Humane Registry: https://martinfowler.com/bliki/HumaneRegistry.html
 
 -----------
 ## Books ##
