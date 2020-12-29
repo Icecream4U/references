@@ -139,6 +139,8 @@ Service Discovery
 DNS: I have seen a convention-based domain template work well. For example, we might have a template defined as <servicename>-<environment>.musiccorp.com, giving us entries like accounts-uat.musiccorp.com or accounts-dev.musiccorp.com. 
 For those situations where you need more than one instance of a host, have DNS entries resolve to load balancers that can handle putting individual hosts into and out of service as appropriate
 
+Dynamic Service Registry: Zookeper vs Consul vs Eureka vs build-your-own-on-AWS
+
 -----------
 ## Links ##
 -----------
@@ -210,7 +212,8 @@ This statement is often quoted, in various forms, as Conway’s law. Eric S. Ray
 ## Advices ##
 -------------
 “Friends don’t let friends write their own crypto”
-“Friends don’t let friends write their own distributed consistent data store.” 
+“Friends don’t let friends write their own distributed consistent data store.”
+"Friends don't let friends write their own distributed coordination systems."
 
 ----------------------
 ## Personal Advices ##
