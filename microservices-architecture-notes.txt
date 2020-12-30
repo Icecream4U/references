@@ -39,8 +39,11 @@ Speed and Safety at Scale and in Harmony.
 -----
 ##2##
 -----
+The greater the cohesion of individual modules in the system, the lower the coupling between modules will be.
+—Larry Constantine and Edward Yourdon, authors of Structured Design: Funda‐ mentals of a Discipline of Computer Program and Systems Design
 
-
+The key in making great and growable systems is much more to design how its modules communicate rather than what their internal properties and behaviors should be.
+—Alan Kay, 1998 email to the Squeak-dev list (http://lists.squeakfoundation.org/pipermail/squeak-dev/1998-October/017019.html)
 
 -----------
 ## Links ##
