@@ -1,3 +1,5 @@
+##1##
+-----
 Microservices are ideal for big systems
 Microservice architecture is goal-oriented
 Microservices are focused on replaceability
@@ -26,7 +28,17 @@ microservice applications share some important characteristics:
 • Decentralized
 • Built and released with automated processes
 
+Speed and Safety at Scale and in Harmony.
+—The Microservices Way
 
+* Speed of Change: Most organizations have the platforms, tools, and infrastructure in place to implement thousands of application releases within a single day. But they don’t. In fact, most teams are happy if they can manage a release in a week. Why is that? The answer of course is that the real deterrent to release speed is the fragility of the software they’ve produced.
+* Safety of Change: Every change is potentially a breaking change and a system optimized purely for speed is only realistic if the cost of breaking the system is near zero. Most development environments are optimized for release speed, enabling the software developer to make multiple changes in as short a time as possible. On the other hand, most production environments are optimized for safety, restricting the rate of change to those releases that carry the minimum risk of damage.
+* At Scale: microservices style is rooted in the idea of solving the problems that arise when software gets too big. To build at scale means to build software that can continue to work when demand grows beyond our initial expectations. Systems that can work at scale don’t break when under pressure; instead they incorporate built-in mechanisms to increase capacity in a safe way.
+* In Harmony: microservice architecture is not limited to a simple series of decisions regarding speed and safety of change. The microservices domain is actually fairly complex and will require you to understand a wide breadth of concepts that have a great depth of impact.
+
+-----
+##2##
+-----
 
 
 
