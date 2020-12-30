@@ -46,3 +46,9 @@ Speed and Safety at Scale and in Harmony.
 ## Links ##
 -----------
 Links linked for shis book: https://github.com/apiacademy/MSABook
+
+---------
+## Cit ##
+---------
+Gall's Law: A complex system that works is invariably found to have evolved from a simple system that worked (which bring us to "Monolith first")
+
