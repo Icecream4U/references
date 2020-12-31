@@ -47,6 +47,12 @@ The key in making great and growable systems is much more to design how its modu
 
 Dealing with complex systems requires a careful approach based on influence versus control
 
+-----
+##3##
+-----
+The very first step of a service design process is to design the process itself.
+—Marc Stickdorn, author of This is Service Design Thinking
+
 -----------
 ## Links ##
 -----------
