@@ -45,6 +45,8 @@ The greater the cohesion of individual modules in the system, the lower the coup
 The key in making great and growable systems is much more to design how its modules communicate rather than what their internal properties and behaviors should be.
 —Alan Kay, 1998 email to the Squeak-dev list (http://lists.squeakfoundation.org/pipermail/squeak-dev/1998-October/017019.html)
 
+Dealing with complex systems requires a careful approach based on influence versus control
+
 -----------
 ## Links ##
 -----------
