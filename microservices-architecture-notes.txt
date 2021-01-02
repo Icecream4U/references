@@ -53,6 +53,16 @@ Dealing with complex systems requires a careful approach based on influence vers
 The very first step of a service design process is to design the process itself.
 —Marc Stickdorn, author of This is Service Design Thinking
 
+Bad designers make assumptions about how a system works, apply changes in the hope that it will produce desired behavior, and call it a day. Good designers make small system changes, assess the impact of those changes, and continually prod the system behavior toward a desired outcome. But a good design process is predicated on your ability to get feedback from the system you are designing. This is actually much more difficult than it sounds—the impact of a change to one small part of the system may result in a ripple of changes that impact other parts of your system with low visibility.
+Gain essential visibility into our system by identifying a few key measurements that give us the most valuable information about system behavior. In organizational design, this type of metric is known as a key performance indicator (KPI). The challenge for the microservice designer is to identify the right ones.
+The risk of making poor decisions is that we steer the system in a direction that increases our “technical debt” (i.e., the future cost of addressing a technical defi‐ ciency). If we go too far along the wrong path we risk producing a system that becomes too expensive to change, so we give up.
+
+The classic microservices example of this is the cautionary tale of the “monolith.” A team creates an initial release of an application when the feature set is small and the componentry has low complexity. Over time, the feature set grows and the complex‐ ity of the deployed application grows, making change ever more difficult. At this point, the team agrees that the application needs to be redesigned and modularized to improve its changeability. But the redesign work is continually deferred because the cost of that work is too high and difficult to justify.
+At the other end of the scale is a system that is so overdesigned and overengineered for future flexibility that it becomes impractical. An incredibly complex, adaptable system that is built for massive amounts of change that never seems to happen.
+So, in order to design a microservice system that is dynamic you’ll need to identify the right KPIs, be able to interpret the data, and make small, cheap changes to the system that can guide you back on the right course. This is only possible if the right organization, culture, processes, and system architecture are in place to make it cheap and easy to do so.
+
+
+
 -----------
 ## Links ##
 -----------
