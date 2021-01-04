@@ -61,12 +61,42 @@ The classic microservices example of this is the cautionary tale of the “monol
 At the other end of the scale is a system that is so overdesigned and overengineered for future flexibility that it becomes impractical. An incredibly complex, adaptable system that is built for massive amounts of change that never seems to happen.
 So, in order to design a microservice system that is dynamic you’ll need to identify the right KPIs, be able to interpret the data, and make small, cheap changes to the system that can guide you back on the right course. This is only possible if the right organization, culture, processes, and system architecture are in place to make it cheap and easy to do so.
 
+-----
+##4##
+-----
+Goals for the Microservices Way
+From our research, we’ve been able to distill four specific goals that lead to practices that aid both safety and speed of change.
+These goals aren’t unique to microservice architecture, but they are useful in shaping your journey.
+Here are the four goals to consider:
+1. Reduce Cost: Will this reduce overall cost of designing, implementing, and maintaining IT services?
+2. Increase Release Speed: Will this increase the speed at which my team can get from idea to deployment of services?
+3. Improve Resilience: Will this improve the resilience of our service network?
+4. Enable Visibility: Does this help me better see what is going on in my service network
+Trade-off for all these four.
 
+Operating Principles
+Along with a set of goals for a microservice approach, it is important to have a set of principles. Unlike goals, which are general, principles offer more concrete guidance on how to act in order to achieve those goals. Principles are not rules—they don’t set out required elements. Instead, they offer examples on how to act in identifiable situa‐ tions. Principles can also be used to inform best practices. Many of the organizations we looked at when doing research have their own set of principles within their company.
+
+Netflix operating principles:
+- Antifragility: The point of antifragility is that you always want a bit of stress in your system to make it stronger. Simian Army.
+- Immutability: assert that auto- scaled groups of service instances are stateless and identical, which enables Netflix’s system to “scale horizontally.” The Chaos Monkey, removes instances regularly to enforce the immutable stateless service principle.
+Another related technique is the use of “Red/Black pushes”. Although each released component is immutable, a new version of the service is introduced alongside the old version, on new instances, then traffic is redirected from old to new. After waiting to be sure all is well, the old instances are terminated.
+- Separation of Concerns: The Netflix microservice architecture arises because of separation of concerns (SoC) in the engineering team organization. Each team owns a group of services. They own building, operating, and evolving those services, and present a stable agreed interface and service level agreement to the consumers of those services. Invoking Conway’s law, an organization structured with independent self- contained cells of engineers will naturally build what is now called a microservice architecture.
 
 -----------
 ## Links ##
 -----------
 Links linked for shis book: https://github.com/apiacademy/MSABook
+
+Four principles of low risk sofware releases: https://www.informit.com/articles/article.aspx?p=1833567
+
+“If it moves graph it. If it matters, alert on it”.: https://www.slideshare.net/jallspaw/dev-and-ops-collaboration-and-awareness-at-etsy-and-flickr/32-Maintainability_Versus_MTTR_Optimized_MTBF
+
+https://www.slideshare.net/adrianco
+https://slides.yowconference.com/yow2013/Cockcroft-CloudNativeArchitectureNetflix.pdf
+https://www.slideshare.net/adriancockcroft
+
+The Netflix Simian Army: https://netflixtechblog.com/the-netflix-simian-army-16e57fbab116
 
 ---------
 ## Cit ##
