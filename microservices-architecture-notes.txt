@@ -83,6 +83,27 @@ Netflix operating principles:
 Another related technique is the use of “Red/Black pushes”. Although each released component is immutable, a new version of the service is introduced alongside the old version, on new instances, then traffic is redirected from old to new. After waiting to be sure all is well, the old instances are terminated.
 - Separation of Concerns: The Netflix microservice architecture arises because of separation of concerns (SoC) in the engineering team organization. Each team owns a group of services. They own building, operating, and evolving those services, and present a stable agreed interface and service level agreement to the consumers of those services. Invoking Conway’s law, an organization structured with independent self- contained cells of engineers will naturally build what is now called a microservice architecture.
 
+Unix
+A succinct set of software architecture principles appears in the foreword for the 1978 edition of Bell Labs’ “UNIX Timesharing System” documentation. The four points (listed next) were offered as a set of “maxims that have gained currency among the builders and users of the Unix system.”
+Here is the list Douglas McIrloy and his colleagues called out:
+1. Make each program do one thing well. To do a new job, build afresh rather than complicate old programs by adding new features.
+2. Expect the output of every program to become the input to another, as yet unknown, program. Don’t clutter output with extraneous information. Avoid stringently columnar or binary input formats. Don’t insist on interactive input.
+3. Design and build software, even operating systems, to be tried early, ideally within weeks. Don’t hesitate to throw away the clumsy parts and rebuild them.
+4. Use tools in preference to unskilled help to lighten a programming task, even if you have to detour to build the tools and expect to throw some of them out after you’ve finished using them.
+One of the interesting things about these four principles is that they offer general guidance on how to think about writing software. Phrases like “do one thing well” and “build software ... to be tried early” can lead developers to adopt what is known in the Unix world as “The Rule of Parsimony” when writing code (“only write a big program when nothing else will do”). This along with other Unix rules provides developers with a set of guidelines for which programming languages or libraries to use. These principles are also meant to shape developers’ thinking.
+
+Suggested principles
+There is no one set of principles that matches every company. Each organization needs to create a set that works for their company.
+- Do one thing well
+- Build afresh (something similar to Netflix immutability principle)
+- Expect output to become input
+- Don’t insist on interactive input: In the Unix world, there is a desire to create scripts that tie a number of command-line tools together to create a “solution.” This means humans don’t need to be engaged every step of the way the scripts handle both the input and the output on their own. Reducing the need for human interaction increases the likelihood that the component can be used in unexpected ways.
+- Try early: The earlier you release (even when that release is to a test environment), the earlier you get feedback and the quicker you can improve.
+- Don’t hesitate to throw it away: However, when you adopt the “try early” principle, throwing away the early attempts is easier.
+It is also important to consider this “throw it away” principle for components that have been running in production for a long time. Over time, components that did an important job may no longer be needed. You may have applied the “build afresh” principle and replaced this component with one that does the job better. It may be the case that the “one thing” that component does is simply no longer needed. The important thing is to be willing to throw away a component when it no longer serves its intended purpose.
+- Toolmaking: One of the important elements in the developmental history of humans was the ability to create tools. These tools were created in order to reach a goal. In some cases, you may need to divert from building your solution and spend some time building tools to help you build that solution.
+
+
 -----------
 ## Links ##
 -----------
@@ -97,6 +118,8 @@ https://slides.yowconference.com/yow2013/Cockcroft-CloudNativeArchitectureNetfli
 https://www.slideshare.net/adriancockcroft
 
 The Netflix Simian Army: https://netflixtechblog.com/the-netflix-simian-army-16e57fbab116
+
+State of the art in microservices (2014): https://www.slideshare.net/adriancockcroft/dockercon-state-of-the-art-in-microservices
 
 ---------
 ## Cit ##
