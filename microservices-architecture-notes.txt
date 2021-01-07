@@ -103,6 +103,29 @@ There is no one set of principles that matches every company. Each organization 
 It is also important to consider this “throw it away” principle for components that have been running in production for a long time. Over time, components that did an important job may no longer be needed. You may have applied the “build afresh” principle and replaced this component with one that does the job better. It may be the case that the “one thing” that component does is simply no longer needed. The important thing is to be willing to throw away a component when it no longer serves its intended purpose.
 - Toolmaking: One of the important elements in the developmental history of humans was the ability to create tools. These tools were created in order to reach a goal. In some cases, you may need to divert from building your solution and spend some time building tools to help you build that solution.
 
+Microservices concerns
+- Shared capabilities (platform services that all teams use):
+  - Hardware services
+  - Code management, testing, and deployment
+  - Data stores
+  - Service Orchestration
+  - Security and identity
+  - Architectural policy
+- Local capabilities (selected and maintained at the team or group level to help teams become more self-sufficient):
+  - General tooling
+  - Runtime configuration (Twitter's Decider | Facebook's Gatekeeper)
+  - Service discovery (Zookeeper | etcd | Consul)
+  - Request routing (Zuul | Netty | Finagle)
+  - System observability (Zipkin | Hystrix)
+- Culture (The code your team produces is the result of the culture)
+  - Communication
+  - Team alignment (The Mythical Man Month | 2-pizza team | squad&tribe)
+  - Fostering innovation (setting boundaries that prevent teams from taking actions that threaten the health and welfare of the company and allowing teams to act on their own within these safe boundaries)
+
+
+-------------------------------------------------
+Microservices in practice
+##5##
 
 -----------
 ## Links ##
@@ -121,10 +144,29 @@ The Netflix Simian Army: https://netflixtechblog.com/the-netflix-simian-army-16e
 
 State of the art in microservices (2014): https://www.slideshare.net/adriancockcroft/dockercon-state-of-the-art-in-microservices
 
+Twitter's Decider configuration tool: https://www.infoq.com/articles/twitter-infrastructure/
+Facebook's Gatekeeper: http://sigops.org/s/conferences/sosp/2015/current/2015-Monterey/printable/008-tang.pdf
+
+Circuit Braker: https://martinfowler.com/bliki/CircuitBreaker.html
+
+Why we do it the way we do it: https://www.slideshare.net/dev2ops/you-cant-change-culture-but-you-can-change-behavior-and-behavior-becomes-culture
+
+Netflix context, not control: https://www.linkedin.com/pulse/netflixs-context-control-how-does-work-steve-urban
+
 ---------
 ## Cit ##
 ---------
 Gall's Law: A complex system that works is invariably found to have evolved from a simple system that worked (which bring us to "Monolith first")
+
+You build it, you run it.
+—Werner Vogels, Amazon CTO
+In small organizations, it is likely that the local capability elements will be the same for the entire company (e.g., the small startup is just a single team anyway). However, as the company grows, acquires new products, and expands into new technology and mar‐ ket spaces, forcing everyone to continue to use the same developer tools, routing implementations, etc., does not scale well. At that point, it makes sense to allow product groups to start making those decisions for themselves.
+
+Organizations which design systems ... are constrained to produce designs that are copies of the communication structures of these organizations.
+—Mel Conway, author of “How Do Committees Invent?”
+
+I have neither the place, the time, nor the desire, to micromanage or make technical decisions for [my team].
+—Steve Urban, Netflix engineer
 
 -----------
 ## Books ##
@@ -133,3 +175,15 @@ The End of Average by Todd Rose (Harper Collins, 2016). Rose has given a TEDx ta
 
 Structure in Fives by Henry Mintzberg (organizational designer)
 
+Grooming, Gossip and the evolution of language by Robin Dunbar (https://www.hup.harvard.edu/catalog.php?isbn=9780674363366)
+
+-----------
+## Tools ##
+-----------
+Morgue (Etsy post mortem tracing) https://github.com/etsy/morgue
+
+Aminator (Netflix AMI creation tool) https://netflixtechblog.com/ami-creation-with-aminator-98d627ca37b0
+
+Asgard (Web-based cloud management and depoyment) https://netflixtechblog.com/asgard-web-based-cloud-management-and-deployment-2c9fc4e4d3a1
+
+etcd (key-value store for distributed systems) https://etcd.io/
