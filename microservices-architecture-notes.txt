@@ -126,6 +126,8 @@ Microservices concerns
 -------------------------------------------------
 Microservices in practice
 ##5##
+To understand the DDD approach, it is important to remember that any software system is a model of a reality it is not the reality itself. For instance, when we log in to online banking and are looking at our checking account, we are not looking at the actual checking account. We’re just looking at a representation, a model, that gives us information about the checking account such as balance and past transactions. It’s likely that the screen our bank teller sees when looking at our account has different information because it’s another model of our account.
+Evans notes that most large systems don’t actually have a single model. The overall model of a large system is actually comprised of many smaller models that are intermingled with each other. These smaller models are organic representations of relevant business contexts, they make sense in their context and when used within the context they are intuitive for a person who is the subject matter expert of the context.
 
 -----------
 ## Links ##
