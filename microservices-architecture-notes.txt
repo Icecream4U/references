@@ -129,6 +129,34 @@ Microservices in practice
 To understand the DDD approach, it is important to remember that any software system is a model of a reality it is not the reality itself. For instance, when we log in to online banking and are looking at our checking account, we are not looking at the actual checking account. We’re just looking at a representation, a model, that gives us information about the checking account such as balance and past transactions. It’s likely that the screen our bank teller sees when looking at our account has different information because it’s another model of our account.
 Evans notes that most large systems don’t actually have a single model. The overall model of a large system is actually comprised of many smaller models that are intermingled with each other. These smaller models are organic representations of relevant business contexts, they make sense in their context and when used within the context they are intuitive for a person who is the subject matter expert of the context.
 
+bounded contexts represent autonomous business domains (i.e., distinct business capabilities), and therefore are the appropri‐ ate starting point for identifying the dividing lines for microservices. If we use the DDD and bounded contexts approaches, the chances of two microservices needing to share a model and the corresponding data space, or ending up having tight coupling, are much lower. Avoiding data sharing improves our ability to treat each microservice as an independently deployable unit. And independent deployability is how we can increase our speed while still maintaining safety within the overall system.
+
+Bounded context should be as big as it needs to be in order to fully express its complete ubiquitous language.
+—Vaughn Vernon, author of Implementing Domain–Driven Design
+
+From a purely technical perspective, the smaller the microservice the easier it can be developed quicker (Agile), iterated on quicker (Lean), and deployed more frequently (Continuous Delivery). But on the modeling side, it is important to avoid creating services that are “too small.” According to Vernon, we cannot arbitrarily reduce the size of a bounded context because its optimal size is determined by the business con‐ text (model). Our technical need for the size of a service can sometimes be different (smaller) from what DDD modeling can facilitate.
+
+Just as we need to achieve a high level of separation, independence, and modu‐ larity of our code we need to make sure that our APIs, the component interfaces, are also loosely coupled. Otherwise, we won’t be able to deploy two microservices inde‐ pendently, which is one of our primary goals in order to balance speed and safety.
+
+The first step in breaking the data-centric habit is to rethink our system designs. We need to stop designing systems as a collection of data services and instead use busi‐ ness capabilities as the design element, or as Sam Newman notes in his book:
+You should be thinking not in terms of data that is shared, but about the capabilities those contexts provide [...]. I have seen too often that thinking about data leads to ane‐ mic, CRUD-based (create, read, update, delete) services. So ask first “What does this context do?” and then “So what data does it need to do that?”
+—Sam Newman, author of Building Microservices
+It turns out that capabilities-centric design is more suitable for microservices than a more traditional, data-centric design.
+
+Thinking in terms of capabilities rather than data is a very powerful technique for API design, in general. It usually results in a more use-case-oriented interface (instead of an SQL-like data-object interface). A capabilities-centric API design is usually a good approach, but in the case of microservices it is not just a smart design technique, it’s a powerful way of avoiding tight coupling.
+
+Much like bounded context analysis, capabilities-oriented design is a crucial techni‐ que but not sufficient to ensure independent deployability for all use cases. We cannot always encapsulate shared data inside a microservice and call it a day. For example, a common use case that cannot be solved with encapsulated capabilities is that of reporting. Any business application requires a certain level of reporting. And reporting often spans across multiple models, bounded contexts, and capabilities. Should reporting-oriented microservices be allowed to share tables with other microservices? The obvious answer is no, because that would immediately create severe tight coupling of services all around the system, and at the very least undermine (if not completely kill) independent deployability.
+
+Instead of storing struc‐ tures that model the state of our world, we can store events that lead to the current state of our world. This modeling approach is called event sourcing. 
+Event sourcing is all about storing facts and any time you have “state” (structural mod‐ els)—they are first-level derivative off of your facts. And they are transient.
+—Greg Young, Code on the Beach, 2014
+
+the roots and inspiration for event sourcing go way beyond microservi‐ ces, the Internet itself, or even computers—all the way back to financial accounting and the paper-and-pen ledgers that contain a list of transactions, and never just the end value (“state”) of a balance. Think of your bank account: there’s a balance amount for your checking and savings accounts, but those are not first-class values that banks store in their databases. The account balance is always a derivative value; it’s a func‐ tion. More specifically, the balance is the sum of all transactions from the day you opened your account.
+
+This is another crucial property of event sourcing: much like in life, we can never “go back” in time and “change” the past, we can only do something in the present to compensate for the mistakes of the past. In event sourcing, data is immutable—we always issue a new command/event to compensate rather than update a state of an entity, as we would do in a CRUD style.
+
+When event sourcing is introduced to developers, the immediate concern is usually performance. If any state value is a function of events, we may assume that every access to the value would require recalculation of the current state from the source events. Obviously that would be extremely slow and generally unacceptable. Fortunately, in event sourcing, we can avoid such expensive operations by using a so-called rolling snapshot—a projection of the entity state at a given point in time. Depending on the event source implementation, it is common to snapshot intermediary values at various time points. For instance, you may precalculate your bank account balance on the last day of every month, so that if you need the balance on January 15, 2016 you will already have it on December 31, 2015 and will just need to calculate the projec‐ tion for two weeks, instead of the entire life of the bank account. 
+
 -----------
 ## Links ##
 -----------
@@ -155,6 +183,10 @@ Why we do it the way we do it: https://www.slideshare.net/dev2ops/you-cant-chang
 
 Netflix context, not control: https://www.linkedin.com/pulse/netflixs-context-control-how-does-work-steve-urban
 
+Continuous delivery: https://martinfowler.com/bliki/ContinuousDelivery.html
+
+CQRS & Event sourcing by Greg Young: https://www.youtube.com/watch?v=JHGkaShoyNs
+
 ---------
 ## Cit ##
 ---------
@@ -178,6 +210,8 @@ The End of Average by Todd Rose (Harper Collins, 2016). Rose has given a TEDx ta
 Structure in Fives by Henry Mintzberg (organizational designer)
 
 Grooming, Gossip and the evolution of language by Robin Dunbar (https://www.hup.harvard.edu/catalog.php?isbn=9780674363366)
+
+RESTful Web APIs by Mike Amundsen, Sam Ruby, Leonard Richardson
 
 -----------
 ## Tools ##
