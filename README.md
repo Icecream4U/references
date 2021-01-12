@@ -5,7 +5,7 @@ list of links and references on architectures, best practise, methodologies and 
 
 `I'm not losing time refactoring! I'm reducing volatility in the marginal cost of features!` *-JB Rainsberger*
 
-`Engineering is a matter of trade offs. Computer Science Engineering is also a matter of keeping your options open` *-Unonimo
+`Engineering is a matter of trade offs. Computer Science Engineering is also a matter of keeping your options open`
 
 ## General links
 - **Martin Fowler** [https://martinfowler.com/]
