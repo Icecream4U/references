@@ -167,6 +167,19 @@ The big win with using event sourcing and CQRS is that they allow us to design v
 
 Be careful not to abuse/overuse event sourcing and CQRS. You should only use event sourcing and CQRS when necessary, since they will complicate your implementation. Event sourcing and CQRS are not an “architecture” for your entire system, rather they are a powerful toolset to be used sparingly. There are still many use cases in which the conventional, CRUD-based model is much simpler and should be preferred.
 
+Letting microservices directly interact with message brokers (such as RabbitMQ, etc.) is rarely a good idea. If two microservices are directly communicating via a message-queue channel, they are sharing a data space (the channel) and we have already talked, at length, about the evils of two microservices sharing a data space. Instead, what we can do is encapsulate message-passing behind an independent microservice that can provide message-passing capability, in a loosely coupled way, to all interested microservices.
+The message-passing workflow we are most interested in, in the context of microservice architecture, is a simple publish/subscribe workflow. How do we express it as an HTTP API/microservice in a standard way?
+
+
+Centralized data storage is operationally convenient: it allows dedicated, specialized teams (DBAs, sysadmins) to maintain and fine-tune these complex systems, obscur‐ ing the complexity from the developers.
+In contrast, microservices favor embedding of all their dependencies, in order to ach‐ ieve independent deployability. In such a scenario, every microservice manages and embeds its database, key-value store, search index, queue, etc. Then moving this microservice anywhere becomes trivial.
+The postulate of wholesale embedding of (data storage) dependencies looks beautiful on the surface, but in practice it is extremely wasteful for all but the simplest use cases. It is obvious that you will have a very hard time embedding entire Cassandra, Oracle, or ElasticSearch clusters in each and every microservice you develop. Espe‐ cially if you are far down the microservices journey and possibly have hundreds of microservices. This is just not doable. Neither is it necessary.
+In reality, a microservice doesn’t have to carry along every single dependency (such as a data storage system) in order to be mobile and freely move across the data centers. The trick to microservice mobility is not packing everything but instead ensuring that the deployment destination provides heavy assets, such as database clusters, in a usable and auto-discoverable form at every destination where a micro‐ service may be deployed. Microservices should be written so that they can quickly discover those assets upon deployment and start using them. Data sharing between microservices is still the ultimate no-no. Sharing data creates tight coupling between microservices, which kills their mobility. However, sharing a database cluster installation is absolutely OK, given that each microservice only accesses isolated, namespaced portions of it.
+The most important question we need to ask, when deciding on embedding dependencies versus “expecting” traits in an environment, is will our decision increase or decrease mobility? Our goal is to maximize deployment mobility of a microservice, which may mean different things in different contexts
+
+##6##
+
+
 -----------
 ## Links ##
 -----------
@@ -196,6 +209,9 @@ Netflix context, not control: https://www.linkedin.com/pulse/netflixs-context-co
 Continuous delivery: https://martinfowler.com/bliki/ContinuousDelivery.html
 
 CQRS & Event sourcing by Greg Young: https://www.youtube.com/watch?v=JHGkaShoyNs
+
+Original Sagas paper by Hector Molina (1987): ftp://ftp.cs.princeton.edu/reports/1987/070.pdf
+Simple example of Saga (2012): https://web.archive.org/web/20160329160540/http://vasters.com/clemensv/2012/09/01/Sagas.aspx
 
 ---------
 ## Cit ##
