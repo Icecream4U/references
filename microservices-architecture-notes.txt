@@ -179,6 +179,9 @@ The most important question we need to ask, when deciding on embedding dependenc
 
 ##6##
 
+We already noted that the IPs a microservice is available at are ever-changing, but what about the port? You might assume that we can assign fixed ports to individual microservices, in essence saying, “our account management microservice always launches on port 5555.” But this would not be a good idea. Generally speaking, many different teams will need to independently launch microservices on, likely, a shared pool of hosts. If we assumed that a specific microservice always launches on a specific port of a host, we would require a high level of cross-team coordination to ensure that multiple teams don’t accidentally claim the same port. But one of the main moti‐ vations of using a microservice architecture is eliminating the need for costly cross- team coordination. Such coordination is untenable, in general. It is also unnecessary since there are better ways to achieve the same goal.
+This is where service discovery enters the microservices scene. We need some system that will keep an eye on all services at all times and keep track of which service is deployed on which IP/port combination at any given time, so that the clients of microservices can be seamlessly routed accordingly.
+We have tools such as Etcd from CoreOs and Consul by HashiCorp. They are “low-level” tools providing a high degree of control and visibility to an architect. On the other side of the spectrum are tools that provide “container-scheduling” capabilities, alongside the service discovery. Kubernetes from Google is probably the most well-known in this category, Docker Swarm being another. With container-scheduling solutions, we get a high degree of automation and abstraction. In this scenario, instead of deciding which container is launched on which servers, we just tell the system how much of the host pool’s resources should be devoted to a particular service and Kubernetes or Swarm takes care of balancing/rebalancing containers on the hosts, based on these criteria. Another important technology utilizing containers is Mesosphere. Mesosphere is even more abstracted than Kubernetes or Swarm, currently marketed as “a data center operating system” that allows a higher degree of automation, without having to worry about the many nodes deployed, and operating the entire server cluster almost as if it were a single superserver.
 
 -----------
 ## Links ##
@@ -212,6 +215,10 @@ CQRS & Event sourcing by Greg Young: https://www.youtube.com/watch?v=JHGkaShoyNs
 
 Original Sagas paper by Hector Molina (1987): ftp://ftp.cs.princeton.edu/reports/1987/070.pdf
 Simple example of Saga (2012): https://web.archive.org/web/20160329160540/http://vasters.com/clemensv/2012/09/01/Sagas.aspx
+
+Microservices by J.Lewis and M.Fowler: https://martinfowler.com/articles/microservices.html
+
+Docker for microservices survival guide: https://www.freshblurbs.com/blog/2016/02/27/docker-microservices-survival-guide.html
 
 ---------
 ## Cit ##
