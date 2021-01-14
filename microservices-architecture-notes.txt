@@ -183,6 +183,21 @@ We already noted that the IPs a microservice is available at are ever-changing, 
 This is where service discovery enters the microservices scene. We need some system that will keep an eye on all services at all times and keep track of which service is deployed on which IP/port combination at any given time, so that the clients of microservices can be seamlessly routed accordingly.
 We have tools such as Etcd from CoreOs and Consul by HashiCorp. They are “low-level” tools providing a high degree of control and visibility to an architect. On the other side of the spectrum are tools that provide “container-scheduling” capabilities, alongside the service discovery. Kubernetes from Google is probably the most well-known in this category, Docker Swarm being another. With container-scheduling solutions, we get a high degree of automation and abstraction. In this scenario, instead of deciding which container is launched on which servers, we just tell the system how much of the host pool’s resources should be devoted to a particular service and Kubernetes or Swarm takes care of balancing/rebalancing containers on the hosts, based on these criteria. Another important technology utilizing containers is Mesosphere. Mesosphere is even more abstracted than Kubernetes or Swarm, currently marketed as “a data center operating system” that allows a higher degree of automation, without having to worry about the many nodes deployed, and operating the entire server cluster almost as if it were a single superserver.
 
+The Need for an API Gateway
+Modern API gateways provide an additional, critical feature required by microservices: trans‐ formation and orchestration. Last but not least, in most mature implementations, API gateways cooperate with service discovery tools to route requests from the clients of microservices.
+Sometimes, certain microservices are deemed “internal” and excluded from the secu‐ rity provided by an API Gateway, as we assume that they can never be reached by external clients. This is dangerous since the assumption may, over time, become inva‐ lid. It’s better to always secure any API/microservice access with an API gateway. In most cases the negligible overhead of introducing an API gateway in between service calls is well worth the benefits.
+Orchestration: Fortunately, since the “chattiness” problem in the APIs is not new, mature API gate‐ ways are perfectly equipped to deal with the problem. A capable API gateway will allow you to declaratively, through configuration, create API interfaces that can orchestrate backend microservices and “hide” their granularity behind a much more developer-friendly interface and eliminate chattiness.
+Routing: An API gateway can inter‐ face with either HTTP or DNS interfaces of a service discovery system and route an API client to the correct service when an external URI associated with the microser‐ vice is requested. You can also use a load balancer or smart-reverse proxy to achieve the same goal, but since we already use API gateways to secure routes to microservi‐ ces, it makes a lot of sense for the routing requirement to also be implemented on the gateway.
+
+Monitoring and Alerting
+While microservice architecture delivers significant benefits, it is also a system with a lot more moving parts than the alternative—monolith. As such, when implementing a microservice architecture, it becomes very important to have extensive system-wide monitoring and to avoid cascading failures.
+Just because a container instance for a microservice is up and running doesn’t always mean the microservice itself is healthy. We may want to additionally check that the microservice is responding on a specific port or a specific URL, possibly even checking that the health ping returns predetermined response data.
+We can also configure “push"-oriented health checks, where the microservice itself is responsible for periodically checking. This alternative workflow is very valuable for scheduled services that must run on predetermined schedules. It is often hard to verify that scheduled jobs do run as expected, but the “push”-based health-check workflow can give us exactly what we need.
+
+##7##
+
+
+
 -----------
 ## Links ##
 -----------
