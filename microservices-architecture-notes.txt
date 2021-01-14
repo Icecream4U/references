@@ -195,8 +195,14 @@ Just because a container instance for a microservice is up and running doesn’t
 We can also configure “push"-oriented health checks, where the microservice itself is responsible for periodically checking. This alternative workflow is very valuable for scheduled services that must run on predetermined schedules. It is often hard to verify that scheduled jobs do run as expected, but the “push”-based health-check workflow can give us exactly what we need.
 
 ##7##
+The ideal organization for microservices has small, empowered teams responsible for services that align with specific business domains. These teams feature all of the roles necessary to deliver these services, such as product owners, architects, developers, quality engineers, and operational engineers. The teams also need the right skills, such as API design and development, and knowledge of distributed applications. Organizations that mismatch any of these characteristics will pay a toll when attempt‐ ing to apply microservice architecture. Teams that are not empowered will experience delays waiting for decisions to be made above their heads. Lack of business alignment will lead to cross-team dependencies, causing further delays and architectural devia‐ tion. Teams that are too large create incomprehensible code bases that impede and delay future changes. The higher up the divide between development and operations, the less motivated the operations group will be to automate and optimize and the less diligent developers will be in the operability of their software. Lastly, if the team doesn’t have the right skills to build API-fronted services using distributed concepts, costs could go up to cover training and/or contract hiring, or the solution could be dragged away from the microservices approach as existing resources retreat to their technological comfort zones.
 
+...the challenge is to find small changes that can unfold in a way that creates large effects...
+—Gareth Morgan, author of Images of Organization
 
+Products not projects!
+
+Security will always be an important design consideration for your microservice system. Even the absence of security is an implicit trade-off. While decisions about how and what to secure will be dependent on the risk profile of your orga‐ nization and nature of the application you are building, the decision about who will manage the security implementation and where it will be implemented will have a big impact on your ability to optimize for the system behavior that you want.
 
 -----------
 ## Links ##
@@ -234,6 +240,8 @@ Simple example of Saga (2012): https://web.archive.org/web/20160329160540/http:/
 Microservices by J.Lewis and M.Fowler: https://martinfowler.com/articles/microservices.html
 
 Docker for microservices survival guide: https://www.freshblurbs.com/blog/2016/02/27/docker-microservices-survival-guide.html
+
+Conway's Law paper: http://www.melconway.com/Home/Conways_Law.html
 
 ---------
 ## Cit ##
