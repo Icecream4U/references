@@ -1,2 +1,22 @@
 Monolith to Microservices by San Newman (2019)
 ----------------------------------------------------
+## 1 ##
+It can be all too tempting to grab a whole load of new technology to go along with your shiny new microservice architecture, but I strongly urge you not to fall into this temptation. Adopting any new technology will have a cost—it will create some upheaval. Hopefully, that will be worth it (if you’ve picked the right technology, of course!), but when first adopting a microservice architecture, you have enough going on.
+Working out how to properly evolve and manage a microservice architecture involves tackling a multitude of challenges related to distributed systems—challenges you may not have faced before. I think it’s much more useful to get your head around these issues as you encounter them, making use of a technology stack you are familiar with, and then consider whether changing your existing technology may help address those problems as you find them.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Links ##
+Contempt Culture: https://blog.aurynn.com/2015/12/16-contempt-culture
