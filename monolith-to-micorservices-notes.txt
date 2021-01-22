@@ -4,19 +4,63 @@ Monolith to Microservices by San Newman (2019)
 It can be all too tempting to grab a whole load of new technology to go along with your shiny new microservice architecture, but I strongly urge you not to fall into this temptation. Adopting any new technology will have a cost—it will create some upheaval. Hopefully, that will be worth it (if you’ve picked the right technology, of course!), but when first adopting a microservice architecture, you have enough going on.
 Working out how to properly evolve and manage a microservice architecture involves tackling a multitude of challenges related to distributed systems—challenges you may not have faced before. I think it’s much more useful to get your head around these issues as you encounter them, making use of a technology stack you are familiar with, and then consider whether changing your existing technology may help address those problems as you find them.
 
+Cohesion: “the code that changes together, stays together.”
 
+Coupling
+Coupling: Once something becomes part of a module interface, it’s hard to walk that back. But if you hide it now, you can always decide to share it later.
+Information Hiding, like dieting, is somewhat more easily described than done. —David Parnas, The Secret History Of Information Hiding
+We like cohesion we like, but we’re wary of coupling. The more things are “coupled”, the more they have to change together. But there are different types of coupling, and each type may require different solutions.
 
+* Implementation coupling
+Implementation coupling is typically the most pernicious form of coupling I see, but luckily for us it’s often one of the easiest to reduce. With implementation coupling, A is coupled to B in terms of how B is implemented when the implementation of B changes, A also changes.
+An helpful trick is to use “outside-in” thinking when it comes to defining a service interface/drive the service interface by thinking of things from the point of the service consumers first, and then work out how to implement that service contract. The alternative approach (which I have observed is all too common, unfortunately) is to do the reverse. The team working on the service takes a data model, or another internal implementation detail, then thinks to expose that to the outside world. With “outside-in” thinking, you instead first ask, “What do my service consumers need?” And I don’t mean you ask yourself what your consumers need; I mean you actually ask the people that will call your service!
+Think of your service contract with the outside world as a user interface. When designing a user interface, you ask the users what they want, and iterate on the design of this with your users. You should shape your service contract in the same way. Aside from the fact it means you end up with a service that is easier for your consumers to use, it also helps keep some separation between the external contract and the internal implementation.
 
+* Temporal coupling
+Temporal coupling is primarily a runtime concern that generally speaks to one of the key challenges of synchronous calls in a distributed environment. When a message is sent, and how that message is handled is connected in time, we are said to have temporal coupling.
+We could reduce this problem in various ways. We could consider the use of caching —if the Order service cached the information it needed from the Customer service, then the Order service would be able to avoid temporal coupling on the downstream service in some cases. We could also consider the use of an asynchronous transport to send the requests, perhaps using something like a message broker. This would allow a message to be sent to a downstream service, and for that message to be handled after the downstream service is available.
 
+* Deployment coupling
+Consider a single process, which consists of multiple statically linked modules. A change is made to a single line of code in one of the modules, and we want to deploy that change. In order to do that, we have to deploy the entire monolith even including those modules that are unchanged. Everything must be deployed together, so we have deployment coupling.
+Deployment coupling may be enforced, as in the example of our statically linked pro‐ cess, but can also be a matter of choice, driven by practices like a release train. I even have worked in organizations that would deploy all services in a system all at once as part of these release train processes, without any thought to whether those services need to be changed.
+If we can reduce deployment coupling, perhaps through decomposing larger processes into independently deployable microservices, we can reduce the risk of each deployment by reducing the scope of deployment.
+Smaller releases make for less risk. There is less to go wrong. If something does go wrong, working out what went wrong and how to fix it is easier because we changed less. Finding ways to reduce the size of release goes to the heart of continuous delivery, which espouses the importance of fast feedback and release-on-demand methods. The smaller the scope of the release, the easier and safer it is to roll out, and the faster feedback we’ll get.
 
+* Domain coupling
+Fundamentally, in a system that consists of multiple independent services, there has to be some interaction between the participants. In a microservice architecture, domain coupling is the result—the interactions between services model the interactions in our real domain. If you want to place an order, you need to know what items were in a customer’s shopping basket. If you want to ship a product, you need to know where you ship it. In our microservice architecture, by definition this informa‐ tion may be contained in different services.
 
+Just Enough DDD
+* Aggregate
+In DDD, an aggregate is a somewhat confusing concept, with many different defini‐ tions out there. Is it just an arbitrary collection of objects? The smallest unit I should take out of a database? The model that has always worked for me is to first consider an aggregate as a representation of a real domain concept—think of something like an Order, Invoice, Stock Item, etc. Aggregates typically have a life cycle around them, which opens them up to being implemented as a state machine. We want to treat aggregates as self-contained units; we want to ensure that the code that handles the state transitions of an aggregate are grouped together, along with the state itself.
+When thinking about aggregates and microservices, a single microservice will handle the life cycle and data storage of one or more different types of aggregates. If func‐ tionality in another service wants to change one of these aggregates, it needs to either directly request a change in that aggregate, or else have the aggregate itself react to other things in the system to initiate its own state transitions.
+The key thing to understand here is that if an outside party requests a state transition in an aggregate, the aggregate can say no. You ideally want to implement your aggregates in such a way that illegal state transitions are impossible.
+There are lots of ways to break a system into aggregates, with some choices being highly subjective. You may, for performance reasons or ease of implementation, decide to reshape aggregates over time. To start with, though, I consider implementa‐ tion concerns to be secondary, initially letting the mental model of the system users be my guiding light on initial design until other factors come into play.
 
+* Bounded Context
+A bounded context typically represents a larger organizational boundary inside an organization. Within the scope of that boundary, explicit responsibilities need to be carried out. That’s all a bit wooly, so let’s look at another specific example.
+Bounded contexts hide implementation detail. There are internal concerns—for example, the types of forklift trucks used is of little interest to anyone other than the folks in the warehouse. These internal concerns should be hidden from the outside world—they don’t need to know, nor should they care.
+From an implementation point of view, bounded contexts contain one or more aggre‐ gates. Some aggregates may be exposed outside the bounded context; others may be hidden internally. As with aggregates, bounded contexts may have relationships with other bounded contexts—when mapped to services, these dependencies become inter-service dependencies.
 
+Mapping Aggregates and Bounded Contexts to Microservices
+Both the aggregate and the bounded context give us units of cohesion with well- defined interfaces with the wider system. The aggregate is a self-contained state machine that focuses on a single domain concept in our system, with the bounded context representing a collection of associated aggregates, again with an explicit inter‐ face to the wider world.
+Both can therefore work well as service boundaries. When starting out, as I’ve already mentioned, I think you want to reduce the number of services you work with. As a result, I think you should probably target services that encompass entire bounded contexts. As you find your feet, and decide to break these services into smaller serv‐ ices, look to split them around aggregate boundaries.
+A trick here is that even if you decide to split a service that models an entire bounded context into smaller services later on, you can still hide this decision from the outside world—perhaps by presenting a coarser-grained API to consumers. The decision to decompose a service into smaller parts is arguably an implementation decision, so we might as well hide it if we can!
 
-
-
-
+## 2 ##
 
 
 ## Links ##
 Contempt Culture: https://blog.aurynn.com/2015/12/16-contempt-culture
+
+Moving to Microservices by Sam Newman & Martin Fowler: https://gotopia.tech/bookclub/episodes/moving-to-microservices-with-sam-newman-and-martin-fowler
+
+Don't touch my code! https://www.microsoft.com/en-us/research/publication/dont-touch-my-code-examining-the-effects-of-ownership-on-software-quality/
+
+## Cit ##
+`people are always the most complicated part of any software development effort` -Martin Fowler
+
+## Books ##
+“The Secret History of Information Hiding” Parnas David
+"Continuous Delivery: Reliable Software Releases through Build, Test, and Deployment Automation" Jez Humble and David Farley
+"Domain-Driven Design: Tackling Complexity in the Heart of Software" Eric Evans
+"Domain-Driven Design Distilled" Vaughn Vernon
