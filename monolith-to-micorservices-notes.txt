@@ -47,7 +47,30 @@ Both can therefore work well as service boundaries. When starting out, as I’ve
 A trick here is that even if you decide to split a service that models an entire bounded context into smaller services later on, you can still hide this decision from the outside world—perhaps by presenting a coarser-grained API to consumers. The decision to decompose a service into smaller parts is arguably an implementation decision, so we might as well hide it if we can!
 
 ## 2 ##
+Why Might You Choose Microservices?
 
+- Improve Team Autonomy
+Giving ownership to parts of the codebase to different teams could be one answer. Improving autonomy can also play out in simply not having to wait for other people to do things for you, so adopting self-service approaches to provisioning machines or environments can be a huge enabler, avoiding the need for central operations teams to have to field tickets for day-to-day activities.
+
+- Reduce Time to Market
+think of all the steps involved with shipping software. Look at how long they take, the durations (both elapsed time and busy time) for each step, and highlight the pain points along the way. After all of that, you may well find that microservices could be part of the solution, but you’ll probably find many other things you could try in parallel.
+
+- Scale Cost-Effectively for Load
+
+- Improve Robustness
+we are able to implement a more robust architecture because functionality is decomposed—that is, an impact on one area of functionality need not bring down the whole system. We also get to focus our time and energy on those parts of the application that most require robustness—ensuring critical parts of our system remain operational.
+Robustness is the ability to have a system that is able to react to expected variations. Resilience is having an organization capable of adapting to things that haven’t been thought of, which could well include creating a culture of experimentation through things like chaos engineering. For example, we are aware that a specific machine could die, so we might bring redundancy into our system by load balancing an instance. That is an example of addressing robustness. Resiliency is the process of an organization preparing itself for the fact that it cannot anticipate all potential problems.
+
+- Scale the Number of Developers
+To successfully scale the number of developers you bring to bear on the problem requires a good degree of autonomy between the teams themselves. Just having microservices isn’t going to be good enough. You’ll have to think about how the teams align to the service ownership, and what coordination between teams is required. You’ll also need to break up work in such a way that changes don’t need to be coordinated across too many services.
+
+- Embrace New Technology
+By isolating the technology change in one service boundary, we can understand the benefits of the new technology in isolation, and limit the impact if the technology turns out to have issues. While mature microservice organizations often limit how many technology stacks they support, they are rarely homogeneous in the technologies in use. The flexibility in being able to try new technology in a safe way can give them competitive advantage, both in terms of delivering better results for customers and in helping keep their developers happy as they get to master new skills.
+
+ - Reuse? Better NOT!
+ Reuse is one of the most oft-stated goals for microservice migration, and in my opin‐ ion is a poor goal in the first place. Fundamentally, reuse is not a direct outcome peo‐ ple want. Reuse is something people hope will lead to other benefits. We hope that through reuse, we may be able to ship features more quickly, or perhaps reduce costs, but if those things are your goals, track those things instead, or you may end up optimizing the wrong thing.
+Measuring reuse in complex systems is difficult, and as I’ve outlined, it is typically something we’re doing to achieve something else. Spend your time focusing on the actual objective instead, and recognize that reuse may not always be the right answer.
+ 
 
 ## Links ##
 Contempt Culture: https://blog.aurynn.com/2015/12/16-contempt-culture
@@ -56,11 +79,16 @@ Moving to Microservices by Sam Newman & Martin Fowler: https://gotopia.tech/book
 
 Don't touch my code! https://www.microsoft.com/en-us/research/publication/dont-touch-my-code-examining-the-effects-of-ownership-on-software-quality/
 
+“Four Concepts for Resilience and the Implications for the Future of Resilience Engineer‐ ing.” David Woods. Reliability Engineering & System Safety 141 (2015) 5–9.
+"Competing consumer pattern" in Enterprise Integration Patterns by Gregor Hohpe and Bobby Woolf, page 502
+
 ## Cit ##
 `people are always the most complicated part of any software development effort` -Martin Fowler
+`Whatever industry you operate in, it is all about your people, and catching them doing things right, and providing them with the confidence, the motivation, the freedom and desire to achieve their true potential.` —John Timpson
 
 ## Books ##
 “The Secret History of Information Hiding” Parnas David
 "Continuous Delivery: Reliable Software Releases through Build, Test, and Deployment Automation" Jez Humble and David Farley
 "Domain-Driven Design: Tackling Complexity in the Heart of Software" Eric Evans
 "Domain-Driven Design Distilled" Vaughn Vernon
+"The Mythical Man-Month, 20th Anniversary Edition" Frederick P. Brooks
