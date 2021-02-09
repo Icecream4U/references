@@ -70,7 +70,143 @@ By isolating the technology change in one service boundary, we can understand th
  - Reuse? Better NOT!
  Reuse is one of the most oft-stated goals for microservice migration, and in my opin‐ ion is a poor goal in the first place. Fundamentally, reuse is not a direct outcome peo‐ ple want. Reuse is something people hope will lead to other benefits. We hope that through reuse, we may be able to ship features more quickly, or perhaps reduce costs, but if those things are your goals, track those things instead, or you may end up optimizing the wrong thing.
 Measuring reuse in complex systems is difficult, and as I’ve outlined, it is typically something we’re doing to achieve something else. Spend your time focusing on the actual objective instead, and recognize that reuse may not always be the right answer.
- 
+
+
+When Might Microservices Be a Bad Idea?
+
+- Unclear Domain:
+Getting service boundaries wrong can be expensive. It can lead to a larger number of cross-service changes, overly coupled components, and in general could be worse than just having a single monolithic system.
+If you feel that you don’t yet have a full grasp of your domain, resolving that before committing to a system decomposition may be a good idea. Yet another reason to do some domain modeling!
+
+- Startups
+Microservices can be a great option for “scale-ups”—startup companies that have established at least the fundamentals of their product/market fit, and are now scaling to increase (or likely simply achieve) profitability.
+Startups, as distinct from scale-ups, are often experimenting with various ideas in an attempt to find a fit with customers. This can lead to huge shifts in the original vision for the product as the space is explored, resulting in huge shifts in the product domain. It is much easier to partition an existing, “brownfield” system than to do so up front with a new, greenfield system that a startup would create. You have more to work with. You have code you can examine, and you can speak to people who use and maintain the system. You also know what good looks like—you have a working sys‐ tem to change, making it easier for you to know when you may have made a mistake or been too aggressive in your decision-making process. I’m certainly not saying never do microservices for startups, but I am saying that these factors mean you should be cautious. Only split around those boundaries that are clear at the beginning, and keep the rest on the more monolithic side. This will also give you time to assess how mature you are from an operational point of view—if you struggle to manage two services, managing ten is going to be difficult.
+
+- Customer-Installed and Managed Software
+If you create software that is packaged and shipped to customers who then operate it themselves, microservices may well be a bad choice. When you migrate to a microser‐ vice architecture, you push a lot of complexity into the operational domain.
+
+- Not Having a Good Reason!
+And finally, we have the biggest reason not to adopt microservices, and that is if you don’t have a clear idea of what exactly it is that you’re trying to achieve. As we’ll explore, the outcome you are looking for from your adoption of microservices will define where you start that migration and how you decompose the system. Without a clear vision of your goals, you are fumbling around in the dark. Doing microservices just because everyone else is doing it is a terrible idea.
+
+- Developing a Vision and Strategy
+This is where you get your folks together and agree on what change you’re hoping to bring (the vision) and how you’re going to get there (the strategy). Visions are tricky things. They need to be realistic yet aspirational, and finding the balance between the two is key. The more widely shared the vision, the more work will need to go into packaging it up to get people onboard. But a vision can be a vague thing and still work with smaller teams (“We’ve got to reduce our bug count!”).
+The vision is mostly about the goal—what it is you’re aiming for. The strategy is about the how. Microservices are going to achieve that goal (you hope; they’ll be part of your strategy). Remember that your strategy may change. Being committed to a vision is important, but being overly committed to a specific strategy in the face of contrary evidence is dangerous, and can lead to significant sunk cost fallacy.
+
+- Communicating the Change Vision
+You can start small when it comes to sharing a vision. I was part of a program called the “Test Mercenaries” to help roll out test automation practices at Google many years ago. The reason that program even got started was because of previous endeav‐ ors by what we would now call a community of practice (a “Grouplet” in Google nomenclature) to help share the importance of automated testing. One of the pro‐ gram’s early efforts in sharing information about testing was an initiative called “Test‐ ing on the Toilet.” It consisted of brief, one-page articles pinned to the back of the toilet doors so folks could read them “at their leisure”!
+
+Changing Organizations
+
+- Establishing a Sense of Urgency
+
+- Creating the Guiding Coalition
+You don’t need everyone on board, but you need enough to make it happen. You need to identify the people inside your organization who can help you drive this change forward. It’s important here that you have involvement of people outside software delivery.
+
+- Communicating the Change Vision
+You can start small when it comes to sharing a vision, example: Test mercenaries
+There is an increasing trend away from face-to-face communica‐ tion in favor of systems like Slack. When it comes to sharing important messages of this sort, face-to-face communication (ideally in person, but perhaps by video) will be significantly more effective.
+
+- Empowering Employees for Broad-Based Action
+“Empowering employees” is management consultancy speak for helping them do their job. Most often this means something pretty straightforward—removing road‐ blocks.
+You’ve shared your vision and built up excitement—and then what happens? Things get in the way. One of the most common problems is that people are too busy doing what they do now to have the bandwidth to change—this is often why companies bring new people into an organization (perhaps through hires or as consultants) to give teams extra bandwidth and expertise to make a change. Don’t throw new technology into the mix for the sake of it. Bring it in to solve concrete problems you see. As you identify obstacles, bring in new technology to fix those problems. Don’t fall into the trap of spending a year defining The Perfect Microservice Platform only to find that it doesn’t actually solve the problems you have.
+
+- Generating Short-Term Wins
+If it takes too long for people to see progress being made, they’ll lose faith in the vision. So go for some quick wins. Focusing initially on small, easy, low-hanging fruit will help build momentum. When it comes to microservice decomposition, function‐ ality that can easily be extracted from our monolith should be high on your list. But as we’ve already established, microservices themselves aren’t the goal—so you’ll need to balance the ease of extraction of some piece of functionality versus the benefit that will bring.
+
+- Consolidating Gains and Producing More Change
+Once you’ve got some success, it becomes important not to sit on your laurels. Quick wins might be the only wins if you don’t continue to push on. It’s important you pause and reflect after successes (and failures) so you can think about how to keep driving the change. You may need to change your approach as you reach different parts of the organization.
+
+- Anchoring New Approaches in the Culture
+By continuing to iterate, roll out changes, and share the stories of successes (and fail‐ ures), the new way of working will start to become business as usual. A large part of this is about sharing stories with your colleagues, with other teams and other folks in the organization. It’s all too often that once we’ve solved a hard problem, we just move on to the next. For change to scale—and stick—continually finding ways to share information inside your organization is essential.
+Over time, the new way of doing something becomes the way that things are done. If you look at companies that are a long way down the road of adopting microservice architectures, whether or not it’s the right approach has ceased to be a question. This is the way things are now done, and the organization understands how to do them well.
+
+
+Importance of Incremental Migration
+Any transition to a microservice architecture should bear these principles in mind. Break the big journey into lots of little steps. Each step can be carried out and learned from. If it turns out to be a retrograde step, it was only a small one. Either way, you learn from it, and the next step you take will be informed by those steps that came before.
+
+
+It’s Production That Counts
+It is really important to note that the extraction of a microservice can’t be considered complete until it is in production and being actively used. Part of the goal of incre‐ mental extraction is to give us chances to learn from and understand the impact of the decomposition itself. The vast majority of the important lessons will not be learned until your service hits production.
+
+
+Cost of Change
+- Reversible and Irreversible Decisions
+Assessing where you are on that spectrum can be challenging initially, but fundamen‐ tally it all comes back to understanding the impact if you decide to change your mind later. The bigger the impact a later course correction will cause, the more it starts to look like an Irreversible decision. The reality is, the vast number of decisions you will make as part of a microservice transition will be toward the Reversible end of the spectrum. Software has a property where rollbacks or undos are often possible; you can roll back a software change or a software deployment. What you do need to take into account is the cost of changing your mind later.
+- Easier Places to Experiment
+The large cost of change means that these oper‐ ations are increasingly risky. How can we manage this risk? My approach is to try to make mistakes where the impact will be lowest. I tend to do much of my thinking in the place where the cost of change and the cost of mistakes is as low as it can be: the whiteboard. Sketch out your proposed design. See what happens when you run use cases across what you think your service bound‐ aries will be. What calls get made? Do you start seeing odd circular references? Do you see two services that are overly chatty, which might indicate they should be one thing?
+
+
+So Where Do We Start?
+=> DDD!
+important concept in helping define boundaries for our services. Developing a domain model also helps us when it comes to working out how to prioritize our decomposition too. Each of these bounded contexts represents a potential unit of decomposition. As we discussed previously, bounded contexts make great starting points for defining microservice boundaries. 
+
+Domain Driven Design
+- How Far Do You Have to Go?
+When approaching the decomposition of an existing system, it’s a daunting prospect. Many people probably built and continue to build the system, and in all likelihood, a much larger group of people actually use it in a day-to-day fashion. Given the scope, trying to come up with a detailed domain model of the entire system may be daunting. It’s important to understand that what we need from a domain model is just enough information to make a reasonable decision about where to start our decomposition.
+
+- Event Storming
+Event Storming is a collaborative exercise involving technical and nontechnical stakeholders who together define a shared domain model. Event Storming works from the bottom up. Participants start by defining the “Domain Events”—things that happen in the system. Then these events are grouped into aggregates, and the aggregates are then grouped into bounded contexts. The output of this exercise isn’t just the model itself; it is the shared understanding of the model. For this process to work, you need to get the right stakeholders in the room and often that is the biggest challenge.
+
+- Using a Domain Model for Prioritization
+Based on the num‐ ber of upstream or downstream dependencies, we can extrapolate a view regarding which functionality is likely to be easier—or harder—to extract.
+
+A Combined Model
+We want some quick wins to make early progress, to build a sense of momentum, and to get early feedback on the efficacy of our approach. This will push us toward wanting to choose easier things to extract. But we also need to gain some benefits from the decomposition so how do we factor that into our thinking?
+Fundamentally, both forms of prioritization make sense, but we need a mechanism for visualizing both together and making appropriate trade-offs. For each candidate service to be extracted, you place it along the two axes displayed. The x-axis represents the value that you think the decomposition will bring. Along the y-axis, you order things based on their difficulty. By working through this process as a team, you can come up with a view of what could be good candidates for extraction—and like every good quadrant model, it’s the stuff in the top right.
+
+
+
+Reorganizing Teams
+
+- Shifting Structures
+This siloing seems quite familiar. Consider the layered architectures we discussed in the previous chapter. Layered architectures could require multiple services to need to be changed when rolling out simple changes. The same applies with organizational silos: the more teams that need to be involved in creating or changing a piece of soft‐ ware, the longer it can take.
+These silos have been breaking down. Dedicated test teams are now a thing of the past for many organizations. Instead, test specialists are becoming an integrated part of delivery teams, enabling developers and testers to work more closely together.
+In situations where the roles of these dedicated teams have been pushed into the delivery teams, the roles of these centralized teams have shifted. They’ve gone from doing the work themselves to helping the delivery teams do the work instead. This can involve embedding specialists with the teams, creating self-service tooling, pro‐ viding training, or a whole host of other activities. Their responsibility has shifted from doing to enabling.
+Increasingly, therefore, we’re seeing more independent, autonomous teams, able to be responsible for more of the end-to-end delivery cycle than ever before. Their focus is on different areas of the product, rather than a specific technology or activity—just in the same way that we’re switching from technical-oriented services toward services modeled around vertical slices of business functionality. Now, the important thing to understand is that while this shift is a definite trend that has been evident for many years, it isn’t universal, nor is such a shift a quick transformation.
+
+- It’s Not One Size Fits All
+Understanding if and how your organization needs to change needs to be based on your context, your working culture, and your people. This is why just copying other people’s organizational design can be especially dangerous.
+Take inspiration from what other organizations have done, absolutely, but don’t assume that what worked for someone else will work in your context. As Jessica Kerr once put it, in relation to the Spotify model, “Copy the questions, not the answers”. Copy that flexible, questioning attitude in how you do things, and try new things, but make sure the changes you apply are rooted in an understanding of your company, its needs, its people, and its culture.
+
+- DevOps Doesn’t Mean NoOps!
+DevOps is a cultural movement based on the concept of breaking down barriers between development and opera‐ tions. You may still want specialists in these roles, or you might not, but whatever you want to do, you want to promote common alignment and understanding across the people involved in delivering your software, no matter what their specific responsibilities are.
+
+- Making a Change
+So if you shouldn’t just copy someone else’s structure, where should you start? When working with organizations that are changing the role of delivery teams, I like to begin with explicitly listing all the activities and responsibilities that are involved in delivering software within that company. Next, map these activities to your existing organizational structure.
+If you’ve already modeled your path to production (something I am a big fan of), you could overlay those ownership boundaries on an existing view.
+Just get stakeholders from all the roles involved, and brainstorm as a group all the activities that go into shipping software in your company.
+Having this understanding of the current “as-is” state is very important, as it can help give everyone a shared understanding of all the work involved. The nature of a siloed organization is that you can struggle to understand what one silo does when you’re in a different silo.
+Once you have your as-is picture, redraw things with your vision for how things should be in the future, within some sensible timescale. I find that six months to a year is probably as far forward as you’ll want to explore in detail. What responsibili‐ ties are changing hands? How will you make that transition happen? What is needed to make that shift? What new skills will the teams need? What are the priorities for the various changes you want to make?
+
+- Changing Skills
+When it comes to assessing the skills that people need, and helping them bridge the gap, I’m a big fan of having people self-assess and use that to build a wider understanding of what support the team may need to carry out that change.
+You can use this process to build up a visual representation of the areas where an individual may want to focus their time and effort.
+Keeping these sorts of self-assessments private is very important. The point isn’t for someone to rate themselves against someone else; it’s for people to help guide their own development. Make this public, and you drastically change the parameters of this exercise. Suddenly, people will be worried about giving themselves a low mark as it may impact their performance review, for example.
+Changing the skill set of the existing team members isn’t the only way forward, of course. What we’re often aiming for is a delivery team that as a whole takes on more responsibilities. It doesn’t necessarily mean that every individual is doing more. The right answer could be to bring new people into the team that have the skills you need.
+
+
+How Will You Know if the Transition Is Working?
+
+- Having Regular Checkpoints
+1. Restate what you are expecting the transition to microservices to achieve. If the business has changed direction such that the direction you’re going in no longer makes sense, then stop!
+2. Review any quantitative measures you have in place to see whether you’re making progress.
+3. Ask for qualitative feedback—do people think things are still working out?
+4. Decide what, if anything, you’re going to change going forward.
+
+- Quantitative Measures
+The measures you select for tracking progress will depend on the goals you’re trying to achieve. If you’re focused on improving time to market, for example, measuring cycle time, number of deployments, and failure rates make sense. If you’re trying to scale the application to handle more load, reporting back on the latest performance tests would be sensible. It’s worth noting that metrics can be dangerous because lf that old adage “You get what you measure.” Metrics can be gamed—inadvertently, or on purpose. That’s another reason why taking small incremental steps is so important: the smaller the change, the smaller the potential negative impacts you’ll see, and the faster you can address them when they occur.
+
+- Qualitative Measures
+Whatever our data shows us, it’s people who build the software, and it’s important that their feedback is included in measuring success. Are they enjoying the process? Do they feel empowered? Or do they feel overwhelmed? Are they getting the support they need to take on new responsibilities or master new skills?
+
+- Avoiding the Sunk Cost Fallacy
+Sunk cost fallacy occurs when people become so invested in a previous approach to doing something that even if evidence shows the approach isn’t working, they’ll still proceed anyway. Sometimes we justify it to ourselves: “It’ll change any minute!” Other times we may have excreted so much political capital within our organization to make a change that we can’t backpedal now. Either way, it’s certainly arguable that sunk cost fallacy is all about emotional investment: we’re so bought into an old way of thinking that we just can’t give it up.
+Sunk cost fallacy is also known as the Con‐ corde fallacy, named for the failed project backed at great expense by the British and French governments to build a supersonic passenger plane. Despite all evidence that the project would never deliver financial returns, more and more money was pumped into the project. Whatever the engineering successes that may have come out of Con‐ corde, it never worked as a viable aircraft for commercial passenger flight.
+If you make each step a small one, it becomes easier to avoid the pitfalls of the sunk cost fallacy. It’s easier to change direction. Use the checkpoint mechanism discussed previously to reflect on what is happening. You don’t need to pull out or change course at the first sign of trouble, but ignoring evidence you are gathering regarding the success (or otherwise) of the change you’re trying to bring about is arguably more foolish than not gathering any evidence in the first place.
+
+- Being Open to New Approaches
+As I hope won’t be a surprise to you if you’ve made it this far, there are several vari‐ ables involved in breaking apart a monolithic system and multiple different paths we could take. The one certainty is that not everything will go smoothly, and you will need to be open to reverting changes you make, trying new things, or sometimes just letting things settle for a moment to let you see what impact it is having.
+If you try to embrace a culture of constant improvement, to always have something new you’re trying, then it becomes much more natural to change direction when needed. If you ghettoize the concept of change or process improvements into discrete streams of work, rather than building it into everything you do, then you run the risk of seeing change as one-off transactional activities. Once that work is done, that’s it! No more change for us! That way of thinking is how you’ll find yourself in another few years way behind all your competitors and with another mountain to climb.
 
 ## Links ##
 Contempt Culture: https://blog.aurynn.com/2015/12/16-contempt-culture
@@ -82,9 +218,17 @@ Don't touch my code! https://www.microsoft.com/en-us/research/publication/dont-t
 “Four Concepts for Resilience and the Implications for the Future of Resilience Engineer‐ ing.” David Woods. Reliability Engineering & System Safety 141 (2015) 5–9.
 "Competing consumer pattern" in Enterprise Integration Patterns by Gregor Hohpe and Bobby Woolf, page 502
 
+Test mercenaries: https://mike-bland.com/2012/07/10/test-mercenaries.html
+Testing on the Toilet: https://mike-bland.com/2011/10/25/testing-on-the-toilet.html
+
+Awesome EventStorming: https://github.com/mariuszgil/awesome-eventstorming
+
+Scaling Agile @ Spotify: https://blog.crisp.se/wp-content/uploads/2012/11/SpotifyScaling.pdf
+
 ## Cit ##
 `people are always the most complicated part of any software development effort` -Martin Fowler
 `Whatever industry you operate in, it is all about your people, and catching them doing things right, and providing them with the confidence, the motivation, the freedom and desire to achieve their true potential.` —John Timpson
+`If you do a big-bang rewrite, the only thing you’re guaranteed of is a big bang.` -Martin Fowler
 
 ## Books ##
 “The Secret History of Information Hiding” Parnas David
@@ -92,3 +236,5 @@ Don't touch my code! https://www.microsoft.com/en-us/research/publication/dont-t
 "Domain-Driven Design: Tackling Complexity in the Heart of Software" Eric Evans
 "Domain-Driven Design Distilled" Vaughn Vernon
 "The Mythical Man-Month, 20th Anniversary Edition" Frederick P. Brooks
+"Team Topologies" Manuel Pais and Matthew Skelton
+"The DevOps Handbook", Gene Kim, Jez Humble, and Patrick Debois
