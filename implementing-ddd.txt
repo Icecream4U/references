@@ -1,0 +1,16 @@
+Implementing DDD by VV - Notes
+------------------------------
+Avoid Anemic Domain Model
+
+
+
+
+
+
+
+
+
+
+-------------------------------
+### Refs
+Anemic Domain Model - https://martinfowler.com/bliki/AnemicDomainModel.html
