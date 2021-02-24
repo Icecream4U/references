@@ -1,5 +1,7 @@
 Implementing DDD by VV - Notes
 ------------------------------
+Strategical Design && Tactical Design
+
 Avoid Anemic Domain Model
 
 
