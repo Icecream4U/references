@@ -30,6 +30,16 @@ How You Can Sell DDD to Your Boss
    + it is about carefully refining the mental model of domain experts into a useful model for the business. The model that is produced is the working software
 8. New tools, both strategic and tactical, are employed.
 
+Applying DDD
+- speak with the domain experts
+- designing the behaviors of objects (use the method changeStatus and remove the setter instead of using it to perform a status change)
+- Whiteboard Time
+   - Using the specific domain you currently work in, think of the common terms and actions of the model.
+   - Write the terms on the board.
+   - Next, write phrases that should be used by your team when you talk about the project.
+   - Discuss them with a real domain expert to see how they could be refined (remember to bring the coffee)
+- test-first approach (which also include show final code to domain experts to be certain that ubuquitous language was respected)
+
 
 
 -------------------------------
