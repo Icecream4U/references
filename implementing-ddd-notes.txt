@@ -40,8 +40,21 @@ Applying DDD
    - Discuss them with a real domain expert to see how they could be refined (remember to bring the coffee)
 - test-first approach (which also include show final code to domain experts to be certain that ubuquitous language was respected)
 
+Domain
+
+- Core Domain: is a part of the business Domain that is of primary importance to the success of the organization. Strategically speaking, the business must excel with its Core Domain. It is of utmost importance to the ongoing success of the business. That project gets the highest priority, one or more domain experts with deep knowledge of that Subdomain, the best developers, and as much leeway and leverage as possible to give the close-knit team an unobstructed success path. Most of your DDD project efforts will be focused on the Core Domain.
+- Supporting Subdomain and Generic Subdomain: sometimes a Bounded Context is created or acquired to support the business. If it models some aspect of the business that is essential, yet not Core, it is a Supporting Subdomain. The business creates a Supporting Subdomain because it is somewhat specialized. Otherwise, if it captures nothing special to the business, yet is required for the overall business solution, it is a Generic Subdomain. Being Supporting or Generic doesn’t mean unimportant. These kinds of Subdomains are important to the success of the business, yet there is no need for the business to excel in these areas.
+
+- problem space: enables us to think of a strategic business challenge to be solved. Your problem space is the combination of the Core Domain and the Subdomains it must use. Subdomains allow us to rapidly view different parts of the Domain that are necessary to solve a specific problem
+- solution space: focuses on how we will implement the software to solve the problem of the business challenge. The solution space is one or more Bounded Contexts, a set of specific software models. That’s because the Bounded Context is a specific solution, a realization view, once developed. The Bounded Context is used to realize a solution as software.
+
+Bounded Context Is Explicit and Linguistic
+A Bounded Context is an explicit boundary within which a domain model exists. Inside the boundary all terms and phrases of the Ubiquitous Language have specific meaning, and the model reflects the Language with exactness
+
+
 
 
 -------------------------------
 ### Refs
 Anemic Domain Model - https://martinfowler.com/bliki/AnemicDomainModel.html
+Strategic Domain Driven Design with Context Mapping - https://www.infoq.com/articles/ddd-contextmapping/
