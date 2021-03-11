@@ -68,3 +68,7 @@ DDD organizational and integration patterns
 ### Refs
 Anemic Domain Model - https://martinfowler.com/bliki/AnemicDomainModel.html
 Strategic Domain Driven Design with Context Mapping - https://www.infoq.com/articles/ddd-contextmapping/
+
+### Links
+https://www.dddcommunity.org/#DDD
+
