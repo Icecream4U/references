@@ -1,0 +1,15 @@
+4 advantages of hexagonal architecture
+----
+
+https://medium.com/@boomimagestudio-techblog/4-advantages-of-hexagonal-architecture-7a8bb1940dba
+
+https://web.archive.org/web/20230410191349/https://medium.com/@boomimagestudio-techblog/4-advantages-of-hexagonal-architecture-7a8bb1940dba
+
+
+==========
+Big Picture Eventstorming: A Guide on How to Explore with a Fast Learning Curve
+----
+
+https://medium.com/@boomimagestudio-techblog/big-picture-eventstorming-a-guide-on-how-to-explore-with-a-fast-learning-curve-b43b91902197
+
+https://web.archive.org/web/20230410191821/https://medium.com/@boomimagestudio-techblog/big-picture-eventstorming-a-guide-on-how-to-explore-with-a-fast-learning-curve-b43b91902197
