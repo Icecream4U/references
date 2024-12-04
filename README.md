@@ -5,6 +5,8 @@ list of links and references on architectures, best practise, methodologies and 
 
 `I'm not losing time refactoring! I'm reducing volatility in the marginal cost of features!` *-JB Rainsberger*
 
+`Software development is a learning process, working code is a side effect` *-Alberto Brandolini
+
 `Engineering is a matter of trade offs. Computer Science Engineering is also a matter of keeping your options open`
 
 ## General links
